@@ -1,7 +1,7 @@
 
 
 <header>
-    <img src="<?= $rootPath ?>Images/ticketwoN1.png" id="ticketImg">
+    <img src="<?= $rootPath ?>Images/ticketwo.png" id="ticketImg">
     <div class="searchBar">
         <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Search" value="" />
         <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
@@ -9,5 +9,5 @@
             </svg>
         </button>
     </div>
-    <div id="menu"><div class='uIcon'><img class='user' src='<?= $rootPath ?>Images/0.png'></div></div>
+    <div id="menu"><a href="login.php"><div class='uIcon'><img class='user' src='<?= $rootPath ?>Images/0.png'></div></a></div>
 </header>
