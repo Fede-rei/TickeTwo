@@ -27,10 +27,5 @@ function displayCart() {
     }
 }
 
-addToCart("Biglietto 1");
-addToCart("Nigger");
-addToCart("Ultranigger");
-
-
 ?>
 
