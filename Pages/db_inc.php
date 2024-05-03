@@ -1,6 +1,6 @@
 <?php
     $type = 'mysql';
-    $server = '127.0.0.1';
+    $server = 'localhost';
     $dbn = 'ticketwo';
     $port = '3306';
     $charset = 'utf8mb4';

@@ -9,5 +9,5 @@
             </svg>
         </button>
     </div>
-    <div id="menu"><a href="login.php"><div class='uIcon'><img class='user' src='<?= $rootPath ?>Images/0.png'></div></a></div>
+    <div id="menu"><div class='uIcon'><a href="<?= $rootPath ?>"Pages/login.php><img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>Images/0.png'></a></div></div>
 </header>
