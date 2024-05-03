@@ -2,6 +2,7 @@
 $rootPath = '../';
 
 include 'db_inc.php';
+include 'operazioni_cart.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +20,6 @@ include 'db_inc.php';
 <?php include 'header.php'; ?>
 <h1>Carrello</h1>
 <hr>
-
+<?php displayCart() ?>
 </body>
 </html>
