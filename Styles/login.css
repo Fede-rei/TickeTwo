@@ -1,0 +1,15 @@
+form {
+    background: #cecfc8;
+    border-radius: 25px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+input {
+    margin: 2px;
+}
+
+#chest {
+    display: inline-block;
+    text-align: center;
+}
