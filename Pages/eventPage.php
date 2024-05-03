@@ -58,8 +58,8 @@ $prezzo = $db->query('select prezzo from Evento e inner join Biglietto b on e.id
                 </div>
             </div>
 
-            <button class="button">Aggiungi al carrello</button>
-            <button class="button">Acquista ora</button>
+            <button>Aggiungi al carrello</button>
+            <button>Acquista ora</button>
         </div>
     </div>
 

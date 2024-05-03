@@ -1,15 +1,39 @@
 form {
-    background: #cecfc8;
-    border-radius: 25px;
-    padding: 15px;
-    margin-top: 20px;
+    text-align: center;
+    border: 1px solid #757c88;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    margin: 10px;
 }
 
 input {
-    margin: 2px;
+    margin: 10px;
+    border-radius: 15px;
+    padding: 5px;
 }
 
 #chest {
-    display: inline-block;
+    display: flex;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 125px;
+    padding-bottom: 200px;
+}
+
+.searchBar {
+    visibility: collapse;
+}
+
+button {
+    font-family: Bahnschrift, serif;
+    border-radius: 15px;
+    padding: 5px 20px;
+    margin: 5px auto;
+}
+
+a {
+    font-size: small;
 }
