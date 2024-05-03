@@ -22,7 +22,7 @@ $prezzo = $db->query('select prezzo from Evento e inner join Biglietto b on e.id
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link href="<?= $rootPath ?>Images/ticketwoW.png" rel="icon" type="image/png">
-        <script src="<?= $rootPath ?>Scripts/redirect.js"></script>
+        <script src="<?= $rootPath ?>Scripts/counter.js" defer></script>
     </head>
 
     <body>
@@ -41,7 +41,16 @@ $prezzo = $db->query('select prezzo from Evento e inner join Biglietto b on e.id
         </div>
         <div class="payment">
             <p><?= $prezzo ?> €<br>
-            I biglietti verranno inviati via email verificata</p>
+            I biglietti verranno inviati all'email verificata</p>
+
+            <div class="quantity">
+                <label for="counter">Qta</label>
+                <div id="counter">
+                    <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                    <input type="text" min="1" value="1">
+                    <span class="up" onClick='increaseCount(event, this)'>+</span>
+                </div>
+            </div>
         </div>
     </div>
 
