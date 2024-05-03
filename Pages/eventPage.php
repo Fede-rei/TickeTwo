@@ -29,7 +29,13 @@ $prezzo = $db->query('select prezzo from Evento e inner join Biglietto b on e.id
     <?php include 'header.php'; ?>
 
     <div class="imgEvent" style="background-image: url('../Images/<?= $infoE['image'] ?>')">
+        <a href="<?= $rootPath ?>index.php"><div class="back">
+            <span class="material-symbols-outlined">
+                keyboard_backspace
+            </span>
+        </div></a>
     </div>
+
     <div class="deets">
         <div class="desc">
             <h1><?= $infoE['nome'] ?></h1>
@@ -51,6 +57,9 @@ $prezzo = $db->query('select prezzo from Evento e inner join Biglietto b on e.id
                     <span class="up" onClick='increaseCount(event, this)'>+</span>
                 </div>
             </div>
+
+            <button class="button">Aggiungi al carrello</button>
+            <button class="button">Acquista ora</button>
         </div>
     </div>
 
