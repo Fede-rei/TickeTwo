@@ -6,7 +6,7 @@ $rootPath = '../'
     <head>
         <title>TikeTwo</title>
         <link rel="stylesheet" href="<?= $rootPath ?>Styles/login.css">
-        <link rel="stylesheet" href="<?= $rootPath ?>Styles/header.css">
+        <link rel="stylesheet" href="<?= $rootPath ?>Styles/header-footer.css">
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@ $rootPath = '../'
     </head>
 
     <body>
-        <?php include 'header.php'; ?>
+        <?php include '../include/header.php'; ?>
 
         <div id="chest">
             <form method="post">
@@ -27,6 +27,6 @@ $rootPath = '../'
             <a href="signup.php">Registrati...</a>
         </div>
 
-        <footer>wertdyftuvbn</footer>
+        <?php include '../include/footer.php'; ?>
     </body>
 </html>

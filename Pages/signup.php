@@ -14,9 +14,11 @@ $rootPath = '../'
     </head>
 
     <body>
-        <?php include 'header.php'; ?>
+        <?php include '../include/header.php'; ?>
 
 
-        <footer></footer>
+
+
+        <?php include '../include/footer.php'; ?>
     </body>
 </html>

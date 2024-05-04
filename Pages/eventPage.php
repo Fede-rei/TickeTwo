@@ -1,7 +1,7 @@
 <?php
 $rootPath = '../';
 
-include 'db_inc.php';
+include '../include/db_inc.php';
 
 
 if (isset($db)) {
@@ -17,7 +17,7 @@ $prezzo = $db->query('select prezzo from Evento e inner join Biglietto b on e.id
 <html lang="en">
     <head>
         <title>TikeTwo</title>
-        <link rel="stylesheet" href="<?= $rootPath ?>Styles/header.css">
+        <link rel="stylesheet" href="<?= $rootPath ?>Styles/header-footer.css">
         <link rel="stylesheet" href="<?= $rootPath ?>Styles/eventPage.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@ $prezzo = $db->query('select prezzo from Evento e inner join Biglietto b on e.id
     </head>
 
     <body>
-    <?php include 'header.php'; ?>
+    <?php include '../include/header.php'; ?>
 
     <div class="imgEvent" style="background-image: url('../Images/<?= $infoE['image'] ?>')">
         <a href="<?= $rootPath ?>index.php"><div class="back">
@@ -63,8 +63,6 @@ $prezzo = $db->query('select prezzo from Evento e inner join Biglietto b on e.id
         </div>
     </div>
 
-    <footer>
-        wsedrftvgybhunj
-    </footer>
+    <?php include '../include/footer.php'; ?>
     </body>
 </html>

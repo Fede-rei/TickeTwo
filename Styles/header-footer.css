@@ -33,6 +33,30 @@ body {
 }
 
 
+#ticketImgF{
+    width: 7%;
+    margin: 10px auto;
+}
+
+
+hr{
+    margin: 0 10px 10px 10px;
+    width: -webkit-fill-available;
+}
+
+.f {
+    padding: 25px 0 60px 0;
+    width: 70%;
+    display: flex;
+    min-height: 100%;
+}
+
+.testoFooter {
+    margin: auto;
+    width: 10%;
+    color: white;
+}
+
 
 a{
     display: flex;
@@ -112,10 +136,10 @@ a{
 
 
 footer {
+    margin: 75px 0 0 0;
     bottom: 0;
     display: flex;
     width: 100%;
-    margin: 0;
     background-color: #757c88;
     z-index: 99;
     flex-direction: column;
