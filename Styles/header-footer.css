@@ -68,6 +68,9 @@ a{
     width: 10%;
     margin-left: auto;
     margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .uIcon{
@@ -79,8 +82,18 @@ a{
     border-radius: 50px;
     width: 50px;
     height: 50px;
-    margin-left: auto;
+    margin-left: 10px;
     margin-right: 10px;
+}
+
+header span {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
 }
 
 .uIcon:hover {

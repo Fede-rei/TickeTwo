@@ -1,5 +1,7 @@
 <?php
-$rootPath = './'
+session_start();
+
+$rootPath = './';
 
 ?>
 <!DOCTYPE html>

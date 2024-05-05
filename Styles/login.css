@@ -19,8 +19,8 @@ input {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 125px;
-    padding-bottom: 200px;
+    min-height: 518.6px;
+    max-height: 518.6px;
 }
 
 .searchBar {
@@ -40,4 +40,12 @@ a {
 
 .uIcon {
     visibility: hidden;
+}
+
+header span{
+    visibility: hidden;
+}
+
+.vError {
+    color: red;
 }

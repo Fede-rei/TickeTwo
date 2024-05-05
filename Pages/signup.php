@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+unset($_SESSION['user']);
+
+
 $rootPath = '../';
 
 $emailR = "/^([a-zA-Z0-9\.]+@+[a-zA-Z]+(\.)+[a-zA-Z]{2,3})$/";
@@ -15,11 +19,13 @@ if(isset($_POST['username'], $_POST['email'], $_POST['pw'], $_POST['cpw']) && ($
     include '../include/db_inc.php';
 
     if (isset($db)) {
-        $emailsQ = $db->query('select * from utente where mail = "' . $email . '"');
+        $emailsQ = $db->prepare('select * from utente where mail = :e');
+        $emailsE = $emailsQ->execute(['e' => $email]);
+        $emails = $emailsE->fetch();
     }
-    $emails = $emailsQ->fetch();
-    $usersQ = $db->query('select * from utente where username = "' . $user . '"');
-    $users = $usersQ->fetch();
+    $usersQ = $db->prepare('select * from utente where username = :u');
+    $usersE = $usersQ->execute(['u' => $user]);
+    $users = $usersE->fetch();
 
     if(preg_match($emailR, $email)){
         if(!isset($emails['mail'])) {
@@ -29,8 +35,9 @@ if(isset($_POST['username'], $_POST['email'], $_POST['pw'], $_POST['cpw']) && ($
                         $qp = $db->prepare('insert into utente(username, password, tipo, mail) values(:u, :p, 0, :e)');
                         $qp->execute(['u' => $user, 'p' => base64_encode($pass), 'e' => $email]);
 
-                        $uIdQ = $db->query('select * from utente where username = "' . $user . '"');
-                        $uId = $uIdQ->fetch();
+                        $uIdQ = $db->prepare('select * from utente where username = :u');
+                        $uIdE = $uIdQ->execute(['u' => $user]);
+                        $uId = $uIdE->fetch();
 
                         $_SESSION['user'] = $uId['id_utente'];
                         header('Location:../index.php');

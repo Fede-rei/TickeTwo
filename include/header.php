@@ -9,5 +9,30 @@
             </svg>
         </button>
     </div>
-    <div id="menu"><div class='uIcon'><a href="<?= $rootPath ?>Pages/login.php"><img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>Images/0.png'></a></div></div>
+    <div id="menu">
+        <a href="<?php
+
+            if(isset($_SESSION['user'])) {
+                echo $rootPath . "Pages/cart.php";
+            } else {
+                echo $rootPath . "Pages/login.php";
+            }
+
+        ?>">
+            <span class="material-symbols-outlined">
+                shopping_cart
+            </span>
+        </a>
+        <div class='uIcon'>
+            <?php if (isset($_SESSION['user'])) { ?>
+            <!-- <a href="<?= $rootPath ?>Pages/login.php"> -->
+                <img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>Images/0.png'>
+            <!-- </a> -->
+            <?php } else { ?>
+            <a href="<?= $rootPath ?>Pages/login.php">
+                <img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>Images/0.png'>
+            </a>
+            <?php } ?>
+        </div>
+    </div>
 </header>

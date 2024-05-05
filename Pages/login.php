@@ -1,5 +1,31 @@
 <?php
-$rootPath = '../'
+session_start();
+
+unset($_SESSION['user']);
+
+
+$rootPath = '../';
+
+$vError = '';
+
+if(isset($_POST['ue'], $_POST['pw'])) {
+    $ue = $_POST['ue'];
+    $pass = base64_encode($_POST['pw']);
+
+    if(isset($db)){
+        $userQ = $db->prepare('select * from utente where (username = :ue or mail = :ue) and password = :pw');
+        $userE = $userQ->execute(['ue' => $ue, 'pw' => $pass]);
+        $user = $userE->fetch();
+    }
+
+    if(isset($user['id_utente'])) {
+        $_SESSION['user'] = $user['id_utente'];
+
+        header('Location: ..');
+    } else {
+        $vError = 'Credenziali incorrette';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,11 +44,12 @@ $rootPath = '../'
 
         <div id="chest">
             <form method="post">
-                <label for="p1">Username: </label>
-                <input type="text" id="p1" name="username" placeholder="Username"><br>
+                <label for="p1">Username/Email: </label>
+                <input type="text" id="p1" name="ue" placeholder="Username/Email"><br>
                 <label for="p2">Password: </label>
                 <input type="password" name="pw" id="p2" placeholder="Password"><br>
                 <button type="submit">Submit</button>
+                <p class="vError"><?= $vError ?></p>
             </form>
             <a href="signup.php">Registrati...</a>
         </div>

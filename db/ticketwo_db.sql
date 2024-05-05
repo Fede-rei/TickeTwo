@@ -38,3 +38,13 @@ CREATE TABLE IF NOT EXISTS Acquisti(
     FOREIGN KEY(id_cliente) REFERENCES Utente(id_utente),
     FOREIGN KEY(id_ticket) REFERENCES Biglietto(id_Biglietto)
 );
+
+create table if not exists Carrello(
+    id_carrello int auto_increment,
+    id_biglietto int,
+    id_utente int,
+    quantità int,
+    PRIMARY KEY(id_carrello),
+    FOREIGN KEY(id_utente) REFERENCES Utente(id_utente),
+    FOREIGN KEY(id_biglietto) REFERENCES Biglietto(id_Biglietto)
+);

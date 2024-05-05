@@ -1,5 +1,10 @@
 <?php
+session_start();
 $rootPath = '../';
+
+if(!isset($_SESSION['user'])) {
+    header('Location: login.php');
+}
 
 include '../include/db_inc.php';
 
@@ -29,11 +34,13 @@ $prezzo = $db->query('select prezzo from Evento e inner join Biglietto b on e.id
     <?php include '../include/header.php'; ?>
 
     <div class="imgEvent" style="background-image: url('../Images/<?= $infoE['image'] ?>')">
-        <a href="<?= $rootPath ?>index.php"><div class="back">
-            <span class="material-symbols-outlined">
-                keyboard_backspace
-            </span>
-        </div></a>
+        <a href="<?= $rootPath ?>index.php">
+            <div class="back">
+                <span class="material-symbols-outlined">
+                    keyboard_backspace
+                </span>
+            </div>
+        </a>
     </div>
 
     <div class="deets">

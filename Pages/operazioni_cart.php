@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Aggiunge un elemento al carrello
 function addToCart($item) {
