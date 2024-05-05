@@ -19,8 +19,8 @@ input {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 125px;
-    padding-bottom: 200px;
+    padding-top: 100px;
+    padding-bottom: 126.6px;
 }
 
 .searchBar {
@@ -36,4 +36,12 @@ button {
 
 a {
     font-size: small;
+}
+
+.uIcon {
+    visibility: hidden;
+}
+
+.vError {
+    color: red;
 }
