@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+unset($_SESSION['eventId']);
+
+
 $rootPath = './';
 
 ?>

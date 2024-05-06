@@ -2,3 +2,14 @@
     padding: 25px;
     min-height: 372px;
 }
+
+.cartItem {
+    border: 1px solid #757c88;
+    border-radius: 15px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+}
+
+h1 {
+
+}

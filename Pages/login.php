@@ -2,20 +2,22 @@
 session_start();
 
 unset($_SESSION['user']);
+unset($_SESSION['eventId']);
 
 
 $rootPath = '../';
 
 $vError = '';
 
-if(isset($_POST['ue'], $_POST['pw'])) {
+include '../include/db_inc.php';
+
+if(isset($_POST['ue'], $_POST['pw']) && $_POST['ue'] !== '' && $_POST['pw'] !== '') {
     $ue = $_POST['ue'];
     $pass = base64_encode($_POST['pw']);
 
     if(isset($db)){
-        $userQ = $db->prepare('select * from utente where (username = :ue or mail = :ue) and password = :pw');
-        $userE = $userQ->execute(['ue' => $ue, 'pw' => $pass]);
-        $user = $userE->fetch();
+        $userQ = $db->query('select * from utente where (username = "' . $ue . '" or mail = "' . $ue . '") and password = "' . $pass . '"');
+        $user = $userQ->fetch();
     }
 
     if(isset($user['id_utente'])) {

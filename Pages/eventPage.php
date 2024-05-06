@@ -2,20 +2,22 @@
 session_start();
 $rootPath = '../';
 
-if(!isset($_SESSION['user'])) {
-    header('Location: login.php');
+
+if(!isset($_SESSION['eventId'])) {
+    if(!isset($_SESSION['user'])) {
+        header('Location: login.php');
+    } else {
+        header('Location: ..');
+    }
 }
 
 include '../include/db_inc.php';
 
 
 if (isset($db)) {
-    $infoEq = $db->query('select * from Evento where id_evento = 0;');
+    $infoEq = $db->query('select * from Evento e inner join Biglietto b on e.id_evento = b.id_event where id_evento = ' . $_SESSION['eventId']);
+    $infoE = $infoEq->fetch();
 }
-
-$infoE = $infoEq->fetch();
-
-$prezzo = $db->query('select prezzo from Evento e inner join Biglietto b on e.id_evento = b.id_event where id_evento = 0;')->fetch()['prezzo'];
 
 ?>
 <!DOCTYPE html>
@@ -53,7 +55,7 @@ $prezzo = $db->query('select prezzo from Evento e inner join Biglietto b on e.id
             </p>
         </div>
         <div class="payment">
-            <p><?= $prezzo ?> €<br>
+            <p><?= $infoE['prezzo'] ?> €<br>
             I biglietti verranno inviati all'email verificata</p>
 
             <div class="quantity">

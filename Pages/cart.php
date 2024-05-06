@@ -1,15 +1,18 @@
 <?php
 session_start();
 
+unset($_SESSION['eventId']);
+
 if(!isset($_SESSION['user'])) {
     header('Location: login.php');
 }
 
 
+
 $rootPath = '../';
 
 include '../include/db_inc.php';
-include 'operazioni_cart.php';
+include '../include/operazioni_cart.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
