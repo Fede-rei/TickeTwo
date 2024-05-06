@@ -32,7 +32,10 @@ include '../include/operazioni_cart.php';
         <div class="carrello">
             <h1>Carrello</h1>
             <hr>
-            <?php displayCart() ?>
+            <div class="cart">
+                <?php displayCart() ?>
+                <?php total() ?>
+            </div>
         </div>
 
         <?php include '../include/footer.php'; ?>
