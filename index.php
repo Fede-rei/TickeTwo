@@ -11,15 +11,15 @@ $rootPath = './';
 <html lang="en">
 <head>
     <title>TikeTwo</title>
-    <link rel="stylesheet" href="Styles/header-footer.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="<?= $rootPath ?>Images/ticketwoW.png" rel="icon" type="image/png">
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="Styles/header-footer.css">
     <style>
         .carousel-inner img {
             width: 100%;
@@ -31,11 +31,15 @@ $rootPath = './';
             width 250px;
         }
 
-        .item{
-            height: 100vw;
-            width 50vw;
+        .item-active{
+            height: 600px;
+            width 50px;
         }
 
+        .img-carousel{
+            height: 600px;
+            width 50px;
+        }
     </style>
 </head>
 
