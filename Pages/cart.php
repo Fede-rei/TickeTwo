@@ -17,7 +17,7 @@ include '../include/operazioni_cart.php';
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>TikeTwo</title>
+        <title>TikeTwo - Carrello</title>
         <link rel="stylesheet" href="../Styles/header-footer.css">
         <link rel="stylesheet" href="../Styles/cart.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />

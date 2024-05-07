@@ -62,7 +62,7 @@ if(isset($_POST['username'], $_POST['email'], $_POST['pw'], $_POST['cpw']) && ($
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>TikeTwo</title>
+        <title>TickeTwo - Signup</title>
         <link rel="stylesheet" href="../Styles/signup.css">
         <link rel="stylesheet" href="../Styles/header-footer.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>

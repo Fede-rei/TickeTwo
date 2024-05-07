@@ -23,7 +23,7 @@ if (isset($db)) {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>TikeTwo</title>
+        <title>TickeTwo</title>
         <link rel="stylesheet" href="../Styles/header-footer.css">
         <link rel="stylesheet" href="../Styles/eventPage.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -36,7 +36,7 @@ if (isset($db)) {
     <?php include '../include/header.php'; ?>
 
     <div class="imgEvent" style="background-image: url('../Images/<?= $infoE['image'] ?>')">
-        <a href="../index.php">
+        <a href="..">
             <div class="back">
                 <span class="material-symbols-outlined">
                     keyboard_backspace
