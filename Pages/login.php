@@ -32,7 +32,7 @@ if(isset($_POST['ue'], $_POST['pw']) && $_POST['ue'] !== '' && $_POST['pw'] !== 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>TikeTwo</title>
+        <title>TickeTwo - Login</title>
         <link rel="stylesheet" href="<?= $rootPath ?>Styles/login.css">
         <link rel="stylesheet" href="<?= $rootPath ?>Styles/header-footer.css">
         <link rel="stylesheet"
