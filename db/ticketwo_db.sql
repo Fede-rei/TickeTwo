@@ -1,4 +1,3 @@
-DROP DATABASE ticketwo;
 CREATE DATABASE IF NOT EXISTS ticketwo;
 USE ticketwo;
 

@@ -25,9 +25,9 @@
         </a>
         <div class='uIcon'>
             <?php if (isset($_SESSION['user'])) { ?>
-            <!-- <a href="<?= $rootPath ?>Pages/login.php"> -->
+             <a href="<?= $rootPath ?>Pages/account.php">
                 <img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>Images/0.png'>
-            <!-- </a> -->
+             </a>
             <?php } else { ?>
             <a href="<?= $rootPath ?>Pages/login.php">
                 <img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>Images/0.png'>
