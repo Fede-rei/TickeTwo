@@ -1,8 +1,8 @@
 #container{
     display: grid;
-    grid-template-areas: 'pfp data'
-                         '.   data'
-                         '.   data';
+    grid-template-areas: 'pfp data new'
+                         '.   data new'
+                         '.   data new';
     margin-top: 10px;
 }
 #pfp{
@@ -30,4 +30,7 @@
     height: 100%;
     object-fit: contain;
     border-radius: 50%;
+}
+#new{
+    grid-area: new;
 }

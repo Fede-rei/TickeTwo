@@ -1,11 +1,16 @@
 <?php
 session_start();
+include '../include/db_inc.php';
 $rootPath = '../';
 
 unset($_SESSION['eventId']);
 
-if(!isset($_SESSION['user'])){
+if (!isset($_SESSION['user'])) {
     header('Location:login.php');
+}
+if (isset($db)) {
+    $q = $db->query('SELECT * FROM utente WHERE id_utente=' . $_SESSION['user']);
+    $info = $q->fetch();
 }
 ?>
 <!DOCTYPE html>
@@ -25,15 +30,28 @@ if(!isset($_SESSION['user'])){
     <link rel="stylesheet" href="../Styles/header-footer.css">
 </head>
 <body>
-<?php include '../include/header.php'?>
+<?php include '../include/header.php' ?>
 <div id="container">
     <div id="pfp">
         <img src="../Images/blu.jpg" id="accImg">
     </div>
     <div id="data">
-
+        <label for="p1">Username: </label>
+        <h3 id="p1"><?= $info['username'] ?></h3>
+        <label for="p2">Mail:</label>
+        <h3 id="p2"> <?= $info['mail'] ?></h3>
+    </div>
+    <div id="new">
+        <form>
+            <label for="p0">Foto profilo: </label>
+            <input type="file" accept="image/jpeg image/png image/jpg image/gif"  id="p0"> <br>
+            <label for="p1">Username: </label>
+            <input id="p1"> <br>
+            <label for="p2">Mail:</label>
+            <input id="p2"> <br>
+        </form>
     </div>
 </div>
-<?php include '../include/footer.php'?>
+<?php include '../include/footer.php' ?>
 </body>
 </html>
