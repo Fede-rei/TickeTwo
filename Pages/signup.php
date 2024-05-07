@@ -34,7 +34,7 @@ if(isset($_POST['username'], $_POST['email'], $_POST['pw'], $_POST['cpw']) && ($
             if(!isset($users['username'])) {
                 if (preg_match($passwordR, $pass)) {
                     if ($pass === $cPass) {
-                        $qp = $db->prepare('insert into utente(username, password, tipo, mail) values(:u, :p, 0, :e)');
+                        $qp = $db->prepare('insert into utente(username, password, tipo, mail, pfp) values(:u, :p, 0, :e, "0.png")');
                         $qp->execute(['u' => $user, 'p' => base64_encode($pass), 'e' => $email]);
 
                         $uIdQ = $db->query('select * from utente where username = "' . $user . '"');

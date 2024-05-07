@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS Utente(
     password VARCHAR(50),
     tipo BOOLEAN,
     mail VARCHAR(50),
+    pfp varchar(50),
     PRIMARY KEY(id_utente)
 );
 

@@ -1,6 +1,12 @@
 <?php
+session_start();
 $rootPath = '../';
 
+unset($_SESSION['eventId']);
+
+if(!isset($_SESSION['user'])){
+    header('Location:login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="it">
