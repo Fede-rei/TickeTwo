@@ -28,11 +28,11 @@
         <div class='uIcon'>
             <?php if (isset($_SESSION['user'])) { ?>
                 <a href="<?= $rootPath ?>Pages/account.php">
-                    <img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>Images/<?= $_SESSION['pic'] ?>'>
+                    <img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>pfp/<?= $_SESSION['pic'] ?>'>
                 </a>
             <?php } else { ?>
                 <a href="<?= $rootPath ?>Pages/login.php">
-                    <img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>Images/<?= $_SESSION['pic'] ?>'>
+                    <img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>pfp/<?= $_SESSION['pic'] ?>'>
                 </a>
             <?php } ?>
         </div>

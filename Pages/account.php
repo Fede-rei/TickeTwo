@@ -11,19 +11,13 @@ if (!isset($_SESSION['user'])) {
 if (isset($db)) {
     $q = $db->query('SELECT * FROM utente WHERE id_utente=' . $_SESSION['user']);
     $info = $q->fetch();
+    $_SESSION['pic'] = $info['pfp'];
 }
 
-if(!isset($_SESSION['pic'])) {
-    $pfpq = $db->query('select pfp from utente where id_utente = ' . $_SESSION['user']);
-    $pfp = $pfpq->fetch()['pfp'];
-}
 
 if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] == 0){
-    $userQuery = $db->query('SELECT * FROM users WHERE username = "'.$_SESSION['username'].'";');
-    $user = $userQuery->fetch(PDO::FETCH_ASSOC);
-
     $originalFileName = explode(".", $_FILES['pic']['name']);
-    $imagename = $user['id'] . '.' . $originalFileName[count($originalFileName) - 1];
+    $imagename = $_SESSION['user'] . '.' . $originalFileName[count($originalFileName) - 1];
     //Stores the filetype e.g image/jpeg
     $imagetype = $_FILES['pic']['type'];
     //Stores any error codes from the upload.
@@ -49,20 +43,18 @@ if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] ==
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../Styles/account.css">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="<?= $rootPath ?>Images/ticketwoW.png" rel="icon" type="image/png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../Styles/header-footer.css">
 </head>
 <body>
 <?php include '../include/header.php' ?>
+
+
 <div id="container">
     <div id="pfp">
-        <img src="../Images/<?= $_SESSION['pic'] ?>" id="accImg">
+        <img src="../pfp/<?= $_SESSION['pic'] ?>" id="accImg">
     </div>
     <div id="data">
         <label for="p1">Username: </label>
@@ -72,13 +64,13 @@ if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] ==
     </div>
     <div id="new">
         Modifica Profilo<br>
-        <form>
-            <label for="p0">Foto profilo: </label>
-            <input type="file" accept="image/jpeg image/png image/jpg image/gif" name="pic" id="p0"> <br>
+        <form method='post' enctype="multipart/form-data">
+            <label for="pic">Foto profilo: </label>
+            <input type="file" accept="image/jpeg image/png image/jpg image/gif" name="pic" id="pic" title="Inserisci un' immagine"><br>
             <label for="p1">Username: </label>
-            <input type="text" id="p1"> <br>
+            <input type="text" id="p1" name="us"> <br>
             <label for="p2">Mail:</label>
-            <input type="text" id="p2"> <br>
+            <input type="text" id="p2" name="pa"> <br>
             <input type="submit">
         </form>
     </div>

@@ -14,7 +14,7 @@ $rootPath = '../';
 include '../include/db_inc.php';
 include '../include/operazioni_cart.php';
 
-if(!isset($_SESSION['pic'])) {
+if(!isset($_SESSION['pic'])&&isset($_SESSION['user'])) {
     if (isset($db)) {
         $pfpq = $db->query('select pfp from utente where id_utente = ' . $_SESSION['user']);
         $pfp = $pfpq->fetch()['pfp'];

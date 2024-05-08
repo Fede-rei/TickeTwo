@@ -6,7 +6,7 @@ unset($_SESSION['eventId']);
 $_SESSION['eventId'] = 1;
 
 include 'include/db_inc.php';
-if(!isset($_SESSION['pic'])) {
+if(!isset($_SESSION['pic'])&&isset($_SESSION['user'])) {
     if (isset($db)) {
         $pfpq = $db->query('select pfp from utente where id_utente = ' . $_SESSION['user']);
         $_SESSION['pic'] = $pfpq->fetch()['pfp'];
@@ -34,8 +34,6 @@ $rootPath = './';
 </head>
     <?php include 'include/header.php'; ?>
 
-
-    <?= print_r($_SESSION) ?>
     <div>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">

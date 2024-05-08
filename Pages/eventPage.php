@@ -21,7 +21,7 @@ if (isset($db)) {
 }
 
 
-if(!isset($_SESSION['pic'])) {
+if(!isset($_SESSION['pic'])&&isset($_SESSION['user'])) {
     $pfpq = $db->query('select pfp from utente where id_utente = ' . $_SESSION['user']);
     $_SESSION['pic'] = $pfpq->fetch()['pfp'];
 }
