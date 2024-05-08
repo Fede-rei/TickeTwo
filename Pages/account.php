@@ -1,40 +1,60 @@
 <?php
+// Avvia la sessione per gestire le informazioni di sessione dell'utente
 session_start();
+
+// Includi il file di configurazione del database
 include '../include/db_inc.php';
+
+// Imposta il percorso radice del sito
 $rootPath = '../';
 
+// Rimuovi l'evento dalla sessione se presente
 unset($_SESSION['eventId']);
 
+// Verifica se l'utente è autenticato, altrimenti reindirizzalo alla pagina di login
 if (!isset($_SESSION['user'])) {
     header('Location:login.php');
 }
+
+// Recupera le informazioni dell'utente dal database
 if (isset($db)) {
     $q = $db->query('SELECT * FROM utente WHERE id_utente=' . $_SESSION['user']);
     $info = $q->fetch();
     $_SESSION['pic'] = $info['pfp'];
 }
 
-
+// Gestisci l'upload dell'immagine del profilo se è stata inviata tramite il modulo di caricamento
 if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] == 0){
+    // Ottieni il nome del file immagine originale
     $originalFileName = explode(".", $_FILES['pic']['name']);
     $imagename = $_SESSION['user'] . '.' . $originalFileName[count($originalFileName) - 1];
-    //Stores the filetype e.g image/jpeg
+
+    // Memorizza il percorso dell'immagine precedente
+    $previousImagePath = $rootPath . 'pfp/' . $_SESSION['pic'];
+
+    // Controlla se esiste un'immagine precedente e rimuovila
+    if(file_exists($previousImagePath)) {
+        unlink($previousImagePath);
+    }
+
+    // Ottieni il tipo, l'errore e il percorso temporaneo dell'immagine caricata
     $imagetype = $_FILES['pic']['type'];
-    //Stores any error codes from the upload.
     $imageerror = $_FILES['pic']['error'];
-    //Stores the tempname as it is given by the host when uploaded.
     $imagetemp = $_FILES['pic']['tmp_name'];
 
-    //The path you wish to upload the image to
+    // Percorso in cui si desidera caricare l'immagine
     $imagePath = $rootPath . 'pfp/';
 
+    // Sposta l'immagine caricata nella directory desiderata
     if(is_uploaded_file($imagetemp)) {
         if(move_uploaded_file($imagetemp, $imagePath . $imagename)) {
+            // Aggiorna il percorso dell'immagine nel database
             $db->query('UPDATE utente SET pfp = "' . $imagename . '" WHERE id_utente = "' . $_SESSION['user'] . '";');
             $_SESSION['pic'] = $imagename;
         }
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -54,15 +74,18 @@ if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] ==
 
 <div id="container">
     <div id="pfp">
+        <!-- Visualizza l'immagine del profilo dell'utente -->
         <img src="../pfp/<?= $_SESSION['pic'] ?>" id="accImg">
     </div>
     <div id="data">
+        <!-- Visualizza le informazioni dell'utente -->
         <label for="p1">Username: </label>
         <h3 id="p1"><?= $info['username'] ?></h3>
         <label for="p2">Mail:</label>
         <h3 id="p2"> <?= $info['mail'] ?></h3>
     </div>
     <div id="new">
+        <!-- Form per la modifica del profilo -->
         Modifica Profilo<br>
         <form method='post' enctype="multipart/form-data">
             <label for="pic">Foto profilo: </label>
