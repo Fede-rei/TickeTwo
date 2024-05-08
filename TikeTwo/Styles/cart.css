@@ -1,0 +1,36 @@
+.carrello {
+    padding: 25px;
+    min-height: 372px;
+}
+
+.cartItem {
+    border: 1px solid #757c88;
+    border-radius: 15px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    padding: 0 25px;
+}
+
+.cart {
+    display: flex;
+    margin: 0;
+    justify-content: space-between
+}
+
+.q {
+    border-radius: 15px;
+    width: 20px;
+}
+
+.qD {
+    display: flex;
+    align-items: center;
+}
+
+.total {
+
+}
+
+.items {
+    display: flex;
+    margin-right: 10px;
+}
