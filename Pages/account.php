@@ -31,7 +31,7 @@ if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] ==
     $previousImagePath = $rootPath . 'pfp/' . $_SESSION['pic'];
 
     // Controlla se esiste un'immagine precedente e rimuovila
-    if(file_exists($previousImagePath)) {
+    if(file_exists($previousImagePath)&&$_SESSION['pic']!="0.png") {
         unlink($previousImagePath);
     }
 
