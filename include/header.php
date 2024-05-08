@@ -1,5 +1,5 @@
 <header>
-    <a href="<?= $rootPath ?>/index.php">
+    <a href="<?= $rootPath ?>index.php">
         <img src="<?= $rootPath ?>Images/ticketwo.png" id="ticketImg">
     </a>
     <div class="searchBar">
