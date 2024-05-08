@@ -69,19 +69,19 @@ $rootPath = './';
         <!-- Immagini del carosello -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" id="imgHeight" src="Images/carosello1.jpg" alt="First slide">
+                <img class="d-block w-100" id="imgHeight" src="Images/blu.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="eventText">BO</h3>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" id="imgHeight" src="Images/carosello2.jpeg" alt="Second slide">
+                <img class="d-block w-100" id="imgHeight" src="Images/0.png" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="eventText">BO</h3>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" id="imgHeight" src="Images/carosello3.jpg" alt="Third slide">
+                <img class="d-block w-100" id="imgHeight" src="Images/ticketwo.png" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="eventText">BO</h3>
                 </div>
