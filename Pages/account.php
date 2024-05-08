@@ -71,13 +71,15 @@ if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] ==
         <h3 id="p2"> <?= $info['mail'] ?></h3>
     </div>
     <div id="new">
+        Modifica Profilo<br>
         <form>
             <label for="p0">Foto profilo: </label>
             <input type="file" accept="image/jpeg image/png image/jpg image/gif" name="pic" id="p0"> <br>
             <label for="p1">Username: </label>
-            <input id="p1"> <br>
+            <input type="text" id="p1"> <br>
             <label for="p2">Mail:</label>
-            <input id="p2"> <br>
+            <input type="text" id="p2"> <br>
+            <input type="submit">
         </form>
     </div>
 </div>
