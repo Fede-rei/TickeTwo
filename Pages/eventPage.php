@@ -14,11 +14,17 @@ if(!isset($_SESSION['eventId'])) {
 include '../include/db_inc.php';
 
 
+
 if (isset($db)) {
     $infoEq = $db->query('select * from Evento e inner join Biglietto b on e.id_evento = b.id_event where id_evento = ' . $_SESSION['eventId']);
     $infoE = $infoEq->fetch();
 }
 
+
+if(!isset($_SESSION['pic'])) {
+    $pfpq = $db->query('select pfp from utente where id_utente = ' . $_SESSION['user']);
+    $_SESSION['pic'] = $pfpq->fetch()['pfp'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +41,7 @@ if (isset($db)) {
     <body>
     <?php include '../include/header.php'; ?>
 
-    <div class="imgEvent" style="background-image: url('../Images/<?= $infoE['image'] ?>')">
+    <div class="imgEvent" style="background-image: url('<?= $infoE['image'] ?>')">
         <a href="..">
             <div class="back">
                 <span class="material-symbols-outlined">

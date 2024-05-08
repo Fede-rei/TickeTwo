@@ -12,6 +12,35 @@ if (isset($db)) {
     $q = $db->query('SELECT * FROM utente WHERE id_utente=' . $_SESSION['user']);
     $info = $q->fetch();
 }
+
+if(!isset($_SESSION['pic'])) {
+    $pfpq = $db->query('select pfp from utente where id_utente = ' . $_SESSION['user']);
+    $pfp = $pfpq->fetch()['pfp'];
+}
+
+if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] == 0){
+    $userQuery = $db->query('SELECT * FROM users WHERE username = "'.$_SESSION['username'].'";');
+    $user = $userQuery->fetch(PDO::FETCH_ASSOC);
+
+    $originalFileName = explode(".", $_FILES['pic']['name']);
+    $imagename = $user['id'] . '.' . $originalFileName[count($originalFileName) - 1];
+    //Stores the filetype e.g image/jpeg
+    $imagetype = $_FILES['pic']['type'];
+    //Stores any error codes from the upload.
+    $imageerror = $_FILES['pic']['error'];
+    //Stores the tempname as it is given by the host when uploaded.
+    $imagetemp = $_FILES['pic']['tmp_name'];
+
+    //The path you wish to upload the image to
+    $imagePath = $rootPath . 'pfp/';
+
+    if(is_uploaded_file($imagetemp)) {
+        if(move_uploaded_file($imagetemp, $imagePath . $imagename)) {
+            $db->query('UPDATE utente SET pfp = "' . $imagename . '" WHERE id_utente = "' . $_SESSION['user'] . '";');
+            $_SESSION['pic'] = $imagename;
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -33,7 +62,7 @@ if (isset($db)) {
 <?php include '../include/header.php' ?>
 <div id="container">
     <div id="pfp">
-        <img src="../Images/blu.jpg" id="accImg">
+        <img src="../Images/<?= $_SESSION['pic'] ?>" id="accImg">
     </div>
     <div id="data">
         <label for="p1">Username: </label>
@@ -44,7 +73,7 @@ if (isset($db)) {
     <div id="new">
         <form>
             <label for="p0">Foto profilo: </label>
-            <input type="file" accept="image/jpeg image/png image/jpg image/gif"  id="p0"> <br>
+            <input type="file" accept="image/jpeg image/png image/jpg image/gif" name="pic" id="p0"> <br>
             <label for="p1">Username: </label>
             <input id="p1"> <br>
             <label for="p2">Mail:</label>

@@ -27,10 +27,6 @@ body {
 
 
 
-#ticketImg{
-    width: 10%;
-    margin: 10px auto 10px 10px;
-}
 
 
 #ticketImgF{
@@ -42,6 +38,7 @@ body {
 hr{
     margin: 0 10px 10px 10px;
     width: -webkit-fill-available;
+    border-top: 1px solid white;
 }
 
 .f {
@@ -157,4 +154,13 @@ footer {
     z-index: 99;
     flex-direction: column;
     align-items: center;
+}
+
+.tI {
+    width: -webkit-fill-available;
+}
+
+#ticketImg{
+    width: 10%;
+    margin: 10px auto 10px 10px;
 }

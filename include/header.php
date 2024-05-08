@@ -1,6 +1,6 @@
 <header>
-    <a href="<?= $rootPath ?>index.php">
-        <img src="<?= $rootPath ?>Images/ticketwo.png" id="ticketImg">
+    <a href="<?= $rootPath ?>index.php" id="ticketImg">
+        <img src="<?= $rootPath ?>Images/ticketwo.png" class="tI">
     </a>
     <div class="searchBar">
         <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Search" value=""/>
@@ -28,11 +28,11 @@
         <div class='uIcon'>
             <?php if (isset($_SESSION['user'])) { ?>
                 <a href="<?= $rootPath ?>Pages/account.php">
-                    <img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>Images/0.png'>
+                    <img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>Images/<?= $_SESSION['pic'] ?>'>
                 </a>
             <?php } else { ?>
                 <a href="<?= $rootPath ?>Pages/login.php">
-                    <img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>Images/0.png'>
+                    <img class='user' value="<?= $rootPath ?>" src='<?= $rootPath ?>Images/<?= $_SESSION['pic'] ?>'>
                 </a>
             <?php } ?>
         </div>

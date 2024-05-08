@@ -3,6 +3,7 @@ session_start();
 
 unset($_SESSION['user']);
 unset($_SESSION['eventId']);
+unset($_SESSION['pic']);
 
 
 $rootPath = '../';
