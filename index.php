@@ -13,6 +13,8 @@ if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
         $_SESSION['pic'] = $pfpq->fetch()['pfp'];
     }
 }
+else
+    $_SESSION['pic'] = "0.png";
 
 // Imposta il percorso radice del sito
 $rootPath = './';

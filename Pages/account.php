@@ -82,6 +82,9 @@ if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] ==
         <h3 id="p1"><?= $info['username'] ?></h3>
         <label for="p2">Mail:</label>
         <h3 id="p2"> <?= $info['mail'] ?></h3>
+        <form action="logout.php">
+            <button type="submit">Logout</button>
+        </form>
     </div>
     <div id="new">
         <!-- Form per la modifica del profilo -->
