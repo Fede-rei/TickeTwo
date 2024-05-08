@@ -42,6 +42,7 @@ $rootPath = './';
     <!-- Collegamenti ai fogli di stile personalizzati -->
     <link rel="stylesheet" href="Styles/header-footer.css">
     <link rel="stylesheet" href="Styles/index.css">
+    <script src="Scripts/search.js" defer ></script>
 </head>
 <body>
 <?php include 'include/header.php'; ?>

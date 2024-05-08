@@ -48,6 +48,7 @@ if(isset($_POST['ue'], $_POST['pw']) && $_POST['ue'] !== '' && $_POST['pw'] !== 
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="../Images/ticketwoW.png" rel="icon" type="image/png">
+    <script src="../Scripts/search.js" defer></script>
 </head>
 
 <body>

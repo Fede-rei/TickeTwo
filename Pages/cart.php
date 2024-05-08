@@ -37,6 +37,7 @@ if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
     <link href="../Images/ticketwoW.png" rel="icon" type="image/png">
     <!-- Includi lo script per il contatore dei biglietti -->
     <script src="../Scripts/counter.js" defer></script>
+    <script src="../Scripts/search.js" defer></script>
 </head>
 
 <body>
