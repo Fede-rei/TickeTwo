@@ -42,6 +42,7 @@ if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="../Images/ticketwoW.png" rel="icon" type="image/png">
     <!-- Includi lo script per il contatore dei biglietti -->
+    <?php echo ' <script type="text/javascript"> var uid = ' . $_SESSION['user'] . '</script>'; ?>
     <script src="../Scripts/counter.js" defer></script>
     <script src="../Scripts/search.js" defer></script>
 </head>
@@ -82,14 +83,14 @@ if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
             <label for="counter">Qta</label>
             <div id="counter">
                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
-                <input type="text" min="1" value="1">
+                <input type="text" min="1" value="1" class="count">
                 <span class="up" onClick='increaseCount(event, this)'>+</span>
             </div>
         </div>
 
         <!-- Pulsanti per aggiungere al carrello o acquistare ora -->
-        <button>Aggiungi al carrello</button>
-        <button>Acquista ora</button>
+        <button value="<?= $infoE['id_Biglietto'] ?>" class="aggCarr">Aggiungi al carrello</button>
+        <button id="acqOra">Acquista ora</button>
     </div>
 </div>
 
