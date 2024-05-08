@@ -1,0 +1,65 @@
+#products{
+    height: 250px;
+    width: 1000px;
+    top: 20%;
+    left: 17%;
+    border: solid 2px blue;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-container{
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color:#000;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    margin: auto;
+}
+
+.swiper-container {
+    overflow-x: hidden;
+}
+
+.swiper-container .container {
+    overflow: visible;
+}
+
+.swiper-container .swiper-container {
+    overflow: visible;
+}
+
+.product{
+
+    height: 200px;
+    width: 200px;
+}
+
+.element{
+    display: inline-block;
+    height: fit-content;
+    width: fit-content;
+
+}
+
+.swiper-button-prev, .swiper-button-next{
+    color: red;
+}

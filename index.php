@@ -25,6 +25,12 @@ $rootPath = './';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Styles/header-footer.css">
     <link rel="stylesheet" href="Styles/index.css">
+    <link rel="stylesheet" href="Styles/swiperStyle.css">
+    <script src="Scripts/swiperScript.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
     <?php include 'include/header.php'; ?>
 
@@ -56,8 +62,34 @@ $rootPath = './';
             </a>
         </div>
 
-        <!-- continua qui home -->
+        <!-- swiper eventi -->
 
+        <div class="swiper-container" id="products">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <ul>
+                        <li class="element"><img src="Images/0.png" class="product" ></li>
+                        <li class="element"><img src="Images/0.png" class="product"></li>
+                        <li class="element"><img src="Images/0.png" class="product"></li>
+                        <li class="element"><img src="Images/0.png" class="product"></li>
+                    </ul>
+                </div>
+                <div class="swiper-slide">
+                    <ul>
+                        <li class="element"><img src="Images/0.png" class="product"></li>
+                        <li class="element"><img src="Images/0.png" class="product"></li>
+                        <li class="element"><img src="Images/0.png" class="product"></li>
+                        <li class="element"><img src="Images/0.png" class="product"></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="swiper-button-prev" ></div>
+            <div class="swiper-button-next" ></div>
+        </div>
     </div>
 
 
