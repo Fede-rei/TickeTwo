@@ -4,10 +4,11 @@
                          '.   data new'
                          '.   data new';
     margin-top: 10px;
+    min-height: 327px;
 }
 #pfp{
     grid-area: pfp;
-    display: block;
+    display: flex;
     font-size: 25px;
     text-align: center;
     background: rgba(255, 255, 255, 0.58);
@@ -15,8 +16,12 @@
     border-radius: 50px;
     width: 276px;
     height: 276px;
-    margin-left: 10px;
-    margin-right: 10px;
+    max-width: 276px;
+    max-height: 276px;
+    margin-left: 50px;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
 
 
 }
@@ -33,4 +38,16 @@
 }
 #new{
     grid-area: new;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    margin: 35px;
+    text-align: center;
+    border: black solid 1px;
+}
+input{
+    margin: 10px;
+}
+button{
+    border-radius: 5px;
+    background-color: #6fd6d3
 }

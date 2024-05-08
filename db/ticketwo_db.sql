@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS Evento(
     descrizione VARCHAR(500),
     data DATETIME,
     luogo VARCHAR(50),
-    image VARCHAR(200),
+    image VARCHAR(10000),
     posti int,
     PRIMARY KEY(id_evento)
 );
