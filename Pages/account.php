@@ -71,7 +71,7 @@ if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] ==
             <input type="text" id="p1" name="us"> <br>
             <label for="p2">Mail:</label>
             <input type="text" id="p2" name="pa"> <br>
-            <input type="submit">
+            <button type="submit">Invia</button>
         </form>
     </div>
 </div>
