@@ -25,10 +25,10 @@ function displayCart() {
                     <div class="qD">
                         <p class="itemQ">
                             <label for="<?= $bE['id_carrello'] ?>">Quantità:</label>
-                            <input class='q' id='<?= $bE['id_carrello'] ?>' value="<?= $bE['quantità'] ?>" min="1">
+                            <input class="q" id="<?= $bE['id_carrello'] ?>" value="<?= $bE['quantità'] ?>" min="1" onchange="changeQ(this)">
                         </p>
 
-                        <span class="material-symbols-outlined">
+                        <span id='<?= $bE['id_carrello'] ?>'  class="material-symbols-outlined del" onclick="remove(this)">
                             delete
                         </span>
                     </div>

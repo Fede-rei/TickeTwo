@@ -34,3 +34,7 @@
     display: flex;
     margin-right: 10px;
 }
+
+.del:hover {
+    cursor: pointer;
+}
