@@ -4,6 +4,7 @@
                          '.   data new'
                          '.   data new';
     margin-top: 10px;
+    min-height: 327px;
 }
 #pfp{
     grid-area: pfp;
@@ -17,8 +18,8 @@
     height: 276px;
     max-width: 276px;
     max-height: 276px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 50px;
+    margin-top: 50px;
     justify-content: center;
     align-items: center;
 
@@ -45,4 +46,8 @@
 }
 input{
     margin: 10px;
+}
+button{
+    border-radius: 5px;
+    background-color: #6fd6d3
 }
