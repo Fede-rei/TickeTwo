@@ -2,11 +2,6 @@
 // Avvia la sessione
 session_start();
 
-// Cancella l'ID dell'evento dalla sessione
-unset($_SESSION['eventId']);
-
-// Imposta l'ID dell'evento nella sessione
-$_SESSION['eventId'] = 1;
 
 // Includi il file di configurazione del database
 include 'include/db_inc.php';
@@ -60,12 +55,21 @@ $rootPath = './';
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" id="imgHeight" src="Images/ticketwo.png" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 class="eventText">BO</h3>
+                </div>
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" id="imgHeight" src="Images/0.png" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 class="eventText">BO</h3>
+                </div>
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" id="imgHeight" src="Images/blu.jpg" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 class="eventText">BO</h3>
+                </div>
             </div>
         </div>
         <!-- Controlli del carosello -->

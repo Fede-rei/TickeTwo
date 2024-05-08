@@ -2,8 +2,6 @@
 // Avvia la sessione
 session_start();
 
-// Cancella l'ID dell'evento dalla sessione
-unset($_SESSION['eventId']);
 
 // Se l'utente non ha effettuato l'accesso, reindirizza alla pagina di login
 if(!isset($_SESSION['user'])) {

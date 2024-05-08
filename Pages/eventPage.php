@@ -6,7 +6,7 @@ session_start();
 $rootPath = '../';
 
 // Verifica se l'utente ha effettuato l'accesso e se ha selezionato un evento
-if(!isset($_SESSION['eventId'])) {
+if(!isset($_GET['eventId'])) {
     // Se l'utente non ha selezionato un evento, reindirizza alla pagina di login
     if(!isset($_SESSION['user'])) {
         header('Location: login.php');
@@ -21,7 +21,7 @@ include '../include/db_inc.php';
 
 // Recupera le informazioni sull'evento selezionato dal database
 if (isset($db)) {
-    $infoEq = $db->query('select * from Evento e inner join Biglietto b on e.id_evento = b.id_event where id_evento = ' . $_SESSION['eventId']);
+    $infoEq = $db->query('select * from Evento e inner join Biglietto b on e.id_evento = b.id_event where id_evento = ' . $_GET['eventId']);
     $infoE = $infoEq->fetch();
 }
 

@@ -4,7 +4,6 @@ session_start();
 
 // Cancella le variabili di sessione
 unset($_SESSION['user']);
-unset($_SESSION['eventId']);
 unset($_SESSION['pic']);
 
 // Imposta il percorso radice del sito

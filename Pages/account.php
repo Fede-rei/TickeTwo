@@ -8,8 +8,6 @@ include '../include/db_inc.php';
 // Imposta il percorso radice del sito
 $rootPath = '../';
 
-// Rimuovi l'evento dalla sessione se presente
-unset($_SESSION['eventId']);
 
 // Verifica se l'utente è autenticato, altrimenti reindirizzalo alla pagina di login
 if (!isset($_SESSION['user'])) {
