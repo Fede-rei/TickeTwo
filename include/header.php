@@ -1,6 +1,6 @@
 <header>
     <!-- Link all'homepage del sito -->
-    <a href="<?= $rootPath ?>index.php" id="ticketImg">
+    <a href="<?= $rootPath ?>" id="ticketImg">
         <!-- Immagine del logo del sito -->
         <img src="<?= $rootPath ?>Images/ticketwo.png" class="tI">
     </a>
