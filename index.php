@@ -103,14 +103,9 @@ $rootPath = './';
         </a>
     </div>
 
-        <p class="text-center text-3 mt-3">Eventi Sportivi: </p>
+        <p class="text-center text-3 mt-3">Eventi: </p>
         <?php include 'include/swiper.php'; ?>
 
-        <p class="text-center text-3 mt-3">Concerti: </p>
-        <?php include 'include/swiper.php'; ?>
-
-        <p class="text-center text-3 mt-3">Fiere: </p>
-        <?php include 'include/swiper.php'; ?>
     </div>
 
 <?php include 'include/footer.php'; ?>
