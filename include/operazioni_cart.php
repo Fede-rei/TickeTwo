@@ -25,7 +25,7 @@ function displayCart() {
                     <div class="qD">
                         <p class="itemQ">
                             <label for="<?= $bE['id_carrello'] ?>">Quantità:</label>
-                            <input class="q" id="<?= $bE['id_carrello'] ?>" value="<?= $bE['quantità'] ?>" min="1" onchange="changeQ(this)">
+                            <input class="q" id="<?= $bE['id_carrello'] ?>" value="<?= $bE['quantità'] ?>" min="1" onchange="changeQ(this)" type="number">
                         </p>
 
                         <span id='<?= $bE['id_carrello'] ?>'  class="material-symbols-outlined del" onclick="remove(this)">
@@ -55,6 +55,9 @@ function total() {
         ?>
         <div class="total">
             <h1>Totale: <?= $t ?>€</h1>
+            <?php if ($t !== 0) { ?>
+                <button class="acq">Acquista</button>
+            <?php } ?>
         </div>
         <?php
     }

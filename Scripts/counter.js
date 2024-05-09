@@ -35,3 +35,24 @@ aggCarr.onclick = function() {
         }
     }
 }
+
+
+
+let acqOra = document.querySelector('.acqOra')
+
+acqOra.onclick = function() {
+    let req = new XMLHttpRequest()
+
+    req.open('get', 'acquista.php?biglietto=' + acqOra.value + '&user=' + uid + '&c=' + c.value)
+    req.send()
+
+    req.onreadystatechange = function() {
+        if(req.readyState === 4 && (req.status >= 200 && req.status < 300)) {
+            let r = JSON.parse(req.response)
+
+            if(r === 1){
+                window.location.replace('cart.php')
+            }
+        }
+    }
+}

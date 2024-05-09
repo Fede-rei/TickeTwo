@@ -90,7 +90,7 @@ if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
 
         <!-- Pulsanti per aggiungere al carrello o acquistare ora -->
         <button value="<?= $infoE['id_Biglietto'] ?>" class="aggCarr">Aggiungi al carrello</button>
-        <button id="acqOra">Acquista ora</button>
+        <button value="<?= $infoE['id_Biglietto'] ?>" class="acqOra">Acquista ora</button>
     </div>
 </div>
 
