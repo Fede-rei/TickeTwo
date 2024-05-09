@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+/*document.addEventListener("DOMContentLoaded", function() {
     // Ottieni il pulsante di invio della ricerca
     var searchQuerySubmit = document.getElementById("searchQuerySubmit");
 
@@ -11,4 +11,4 @@ document.addEventListener("DOMContentLoaded", function() {
         // Effettua una qualsiasi operazione di ricerca qui (es. reindirizzamento a una pagina di ricerca)
         console.log("Ricerca eseguita per: " + searchQueryInput);
     });
-});
+});*/
