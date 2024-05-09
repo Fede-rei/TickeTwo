@@ -42,7 +42,6 @@ if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="../Images/ticketwoW.png" rel="icon" type="image/png">
     <!-- Includi lo script per il contatore dei biglietti -->
-    <?php echo ' <script type="text/javascript"> var uid = ' . $_SESSION['user'] . '</script>'; ?>
     <script src="../Scripts/counter.js" defer></script>
     <script src="../Scripts/search.js" defer></script>
 </head>
