@@ -13,7 +13,8 @@ function removeFromCart($index) {
 function displayCart() {
     include '../include/db_inc.php';
     if (isset($db)) {
-        $carrelloUq = $db->query("select * from carrello c inner join biglietto b on c.id_biglietto = b.id_biglietto inner join evento e on b.id_event = e.id_evento where id_utente = " . $_SESSION['user']);
+        $carrelloUq = $db->prepare("select * from carrello c inner join biglietto b on c.id_biglietto = b.id_biglietto inner join evento e on b.id_event = e.id_evento where id_utente = :u");
+        $carrelloU = $carrelloUq->execute(['u' => $_SESSION['user']]);
         $carrelloU = $carrelloUq->fetchAll();
 
         ?> <div class="items"> <?php
@@ -44,7 +45,8 @@ function displayCart() {
 function total() {
     include '../include/db_inc.php';
     if (isset($db)) {
-        $carrelloUq = $db->query("select * from carrello c inner join biglietto b on c.id_biglietto = b.id_biglietto inner join evento e on b.id_event = e.id_evento where id_utente = " . $_SESSION['user']);
+        $carrelloUq = $db->prepare("select * from carrello c inner join biglietto b on c.id_biglietto = b.id_biglietto inner join evento e on b.id_event = e.id_evento where id_utente = :u");
+        $carrelloU = $carrelloUq->execute(['u' => $_SESSION['user']]);
         $carrelloU = $carrelloUq->fetchAll();
         $t = 0;
             if (count($carrelloU) > 0) {
