@@ -22,7 +22,7 @@ if(isset($_POST['ue'], $_POST['pw']) && $_POST['ue'] !== '' && $_POST['pw'] !== 
     // Verifica se il database è stato inizializzato correttamente
     if(isset($db)){
         // Esegui la query per trovare l'utente con l'username o l'email corrispondenti e la password corretta
-        $userQ = $db->prepare('select * from utente where (username = :u or mail = :e) and password = :p');
+        $userQ = $db->prepare('select * from utente where (username = :u or mail = :e)');
         $user = $userQ->execute(['u' => $ue, 'e' => $ue]);
         $user = $userQ->fetch();
     }

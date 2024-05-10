@@ -13,7 +13,7 @@ if (isset($db)) {
             <a href="Pages/eventPage.php?eventId=<?= $item['id_evento'] ?>">
                 <div class="swiper-slide">
                     <?= $item['nome'] ?>
-                    <img class="event-image" src="<?= $item['image'] ?>">
+                    <img class="event-image" src="Images<?= $item['image'] ?>">
                 </div>
             </a>
         <?php endforeach; ?>

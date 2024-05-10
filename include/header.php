@@ -8,7 +8,7 @@
     </a>
     <!-- Barra di ricerca -->
     <div class="searchBar">
-        <form method="get" action="Pages/search_Results.php" class="cerca">
+        <form method="get" action="<?= $rootPath ?>Pages/search_Results.php" class="cerca">
             <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Search" value=""/>
             <button type="submit" id="searchQuerySubmit">
                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">
