@@ -10,10 +10,10 @@ if (isset($db)) {
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <?php foreach ($eventsarray as $item): ?>
-            <a href="../Pages/eventPage.php?eventId=<?= $item['id_evento'] ?>">
+            <a href="Pages/eventPage.php?eventId=<?= $item['id_evento'] ?>">
                 <div class="swiper-slide">
                     <?= $item['nome'] ?>
-                    <img class="event-image" src="../Images/<?= $item['image'] ?>">
+                    <img class="event-image" src="<?= $item['image'] ?>">
                 </div>
             </a>
         <?php endforeach; ?>

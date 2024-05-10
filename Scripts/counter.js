@@ -16,6 +16,8 @@ function decreaseCount(a, b) {
     }
 }
 
+console.log(document.cookie)
+
 let aggCarr = document.querySelector('.aggCarr')
 let c = document.querySelector('.count')
 

@@ -7,13 +7,8 @@ $rootPath = '../';
 
 // Verifica se l'utente ha effettuato l'accesso e se ha selezionato un evento
 if(!isset($_GET['eventId'])) {
-    // Se l'utente non ha selezionato un evento, reindirizza alla pagina di login
-    if(!isset($_SESSION['user'])) {
-        header('Location: login.php');
-    } else {
-        // Se l'utente ha effettuato l'accesso ma non ha selezionato un evento, reindirizza alla homepage
-        header('Location: ..');
-    }
+    // Se l'utente ha effettuato l'accesso ma non ha selezionato un evento, reindirizza alla homepage
+    header('Location: ..');
 }
 
 // Includi il file di configurazione del database
@@ -44,7 +39,7 @@ if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="../Images/ticketwoW.png" rel="icon" type="image/png">
     <!-- Includi lo script per il contatore dei biglietti -->
-    <?php echo ' <script type="text/javascript"> var uid = ' . $_SESSION['user'] . '</script>'; ?>
+    <?php echo '<script type="text/javascript"> var uid = ' . $_SESSION['user'] . '</script>'; ?>
     <script src="../Scripts/counter.js" defer></script>
     <script src="../Scripts/search.js" defer></script>
 </head>
@@ -91,8 +86,13 @@ if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
         </div>
 
         <!-- Pulsanti per aggiungere al carrello o acquistare ora -->
-        <button value="<?= $infoE['id_Biglietto'] ?>" class="aggCarr">Aggiungi al carrello</button>
-        <button value="<?= $infoE['id_Biglietto'] ?>" class="acqOra">Acquista ora</button>
+        <?php if(isset($_SESSION['user'])) { ?>
+            <button value = "<?= $infoE['id_Biglietto'] ?>" class="aggCarr" > Aggiungi al carrello </button >
+            <button value = "<?= $infoE['id_Biglietto'] ?>" class="acqOra" > Acquista ora </button >
+        <?php } else { ?>
+            <button onclick="location.href = 'login.php'"> Aggiungi al carrello </button >
+            <button onclick="location.href = 'login.php'"> Acquista ora </button >
+        <?php } ?>
     </div>
 </div>
 

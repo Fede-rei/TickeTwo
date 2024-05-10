@@ -47,7 +47,7 @@ if(isset($_POST['username'], $_POST['email'], $_POST['pw'], $_POST['cpw']) && ($
                     if ($pass === $cPass) {
                         // Esegui l'inserimento dell'utente nel database
                         $qp = $db->prepare('insert into utente(username, password, tipo, mail, pfp) values(:u, :p, 0, :e, "0.png")');
-                        $qp->execute(['u' => $user, 'p' => base64_encode($pass), 'e' => $email]);
+                        $qp->execute(['u' => $user, 'p' => password_hash($pass, PASSWORD_DEFAULT), 'e' => $email]);
 
                         // Ottieni l'ID dell'utente appena registrato
                         $uIdQ = $db->prepare('select * from utente where username = :u');

@@ -17,23 +17,25 @@ include '../include/db_inc.php';
 // Gestione del login
 if(isset($_POST['ue'], $_POST['pw']) && $_POST['ue'] !== '' && $_POST['pw'] !== '') {
     $ue = $_POST['ue'];
-    $pass = base64_encode($_POST['pw']);
+    $pass = $_POST['pw'];
 
     // Verifica se il database è stato inizializzato correttamente
     if(isset($db)){
         // Esegui la query per trovare l'utente con l'username o l'email corrispondenti e la password corretta
         $userQ = $db->prepare('select * from utente where (username = :u or mail = :e) and password = :p');
-        $user = $userQ->execute(['u' => $ue, 'e' => $ue, 'p' => $pass]);
+        $user = $userQ->execute(['u' => $ue, 'e' => $ue]);
         $user = $userQ->fetch();
     }
 
-    // Se l'utente è stato trovato, imposta la sessione e reindirizza alla homepage
-    if(isset($user['id_utente'])) {
-        $_SESSION['user'] = $user['id_utente'];
-        header('Location: ..');
-    } else {
-        // Altrimenti, mostra un messaggio di errore
-        $vError = 'Credenziali incorrette';
+    if(password_verify($user['password'], $pass)) {
+        // Se l'utente è stato trovato, imposta la sessione e reindirizza alla homepage
+        if (isset($user['id_utente'])) {
+            $_SESSION['user'] = $user['id_utente'];
+            header('Location: ..');
+        } else {
+            // Altrimenti, mostra un messaggio di errore
+            $vError = 'Credenziali incorrette';
+        }
     }
 }
 ?>
