@@ -12,17 +12,8 @@ if(!isset($_SESSION['user'])) {
 $rootPath = '../';
 
 // Includi il file di configurazione del database e le operazioni del carrello
-include '../include/db_inc.php';
 include '../include/operazioni_cart.php';
 
-// Se l'utente ha effettuato l'accesso ma non ha ancora un'immagine del profilo nella sessione, recupera l'immagine dal database
-if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
-    if (isset($db)) {
-        $pfpq = $db->prepare('select pfp from utente where id_utente = :u');
-        $_SESSION['pic'] = $pfpq->execute(['u' => $_SESSION['user']]);
-        $_SESSION['pic'] = $pfpq->fetch()['pfp'];
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
