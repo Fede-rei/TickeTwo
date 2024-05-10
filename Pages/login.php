@@ -27,7 +27,7 @@ if(isset($_POST['ue'], $_POST['pw']) && $_POST['ue'] !== '' && $_POST['pw'] !== 
         $user = $userQ->fetch();
     }
 
-    if(password_verify($user['password'], $pass)) {
+    if(password_verify($pass, $user['password'])) {
         // Se l'utente è stato trovato, imposta la sessione e reindirizza alla homepage
         if (isset($user['id_utente'])) {
             $_SESSION['user'] = $user['id_utente'];
