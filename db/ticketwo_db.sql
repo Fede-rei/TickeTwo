@@ -25,7 +25,6 @@ CREATE TABLE IF NOT EXISTS Evento(
 CREATE TABLE IF NOT EXISTS Biglietto(
     id_Biglietto INT AUTO_INCREMENT,
     prezzo DOUBLE,
-    posto INT,
     id_event INT,
     PRIMARY KEY(id_Biglietto),
     FOREIGN KEY(id_event) REFERENCES Evento(id_evento)
@@ -50,3 +49,5 @@ CREATE TABLE IF NOT EXISTS Carrello(
     FOREIGN KEY(id_utente) REFERENCES Utente(id_utente),
     FOREIGN KEY(id_biglietto) REFERENCES Biglietto(id_Biglietto)
 );
+
+INSERT INTO Utente (id_utente,username,password,tipo,mail,pfp) VALUES (0,'Admin','$2y$10$Dwi5SNVH1O3jZp7SlMIykuA9M0hX9YJod5mlxn1ZhvuqoJk86qPhO','1','Admin@ticketwo.com','0.png');
