@@ -13,7 +13,7 @@ foreach ($idCarr as $item) {
 
     if (isset($i['id_acquisto'])) {
         $update = $db->prepare('update acquisti set q = :q where id_cliente = :u and id_ticket = :t');
-        $update->execute(['q' => ($i['quantità'] + $i['q']), 'u' => $_GET['user'], 't' => $i['id_biglietto']]);
+        $update->execute(['q' => ($i['quantita'] + $i['q']), 'u' => $_GET['user'], 't' => $i['id_biglietto']]);
         $delete = $db->prepare('delete from carrello where id_biglietto = :b and id_utente = :u');
         $delete->execute(['b' => $i['id_biglietto'], 'u' => $_GET['user']]);
     } else {
@@ -22,7 +22,7 @@ foreach ($idCarr as $item) {
         $idB = $idBq->fetch();
 
         $insert = $db->prepare('insert into acquisti(q, id_cliente, id_ticket) values(:q, :u, :t)');
-        $insert->execute(['q' => ($idB['quantità']), 'u' => $_GET['user'], 't' => $idB['id_biglietto']]);
+        $insert->execute(['q' => ($idB['quantita']), 'u' => $_GET['user'], 't' => $idB['id_biglietto']]);
         $delete = $db->prepare('delete from carrello where id_biglietto = :b and id_utente = :u');
         $delete->execute(['b' => $idB['id_biglietto'], 'u' => $_GET['user']]);
     }

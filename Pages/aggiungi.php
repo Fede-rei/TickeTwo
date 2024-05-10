@@ -8,14 +8,14 @@ if(isset($db)) {
     $inCart = $in->fetch();
 }
 if(!isset($inCart['id_utente'])) {
-    $add = $db->prepare('insert into carrello(id_biglietto, id_utente, quantità) values(:b, :u, :c)');
+    $add = $db->prepare('insert into carrello(id_biglietto, id_utente, quantita) values(:b, :u, :c)');
     $add->execute(['b' => $_GET['biglietto'], 'u' => $_GET['user'], 'c' => $_GET['c']]);
 
 
     echo json_encode(1);
 } else {
-    $add = $db->prepare('update carrello set quantità = :q where id_utente = :u and id_biglietto = :b');
-    $add->execute(['q' => ($inCart['quantità'] + $_GET['c']), 'u' => $_GET['user'], 'b' => $_GET['biglietto']]);
+    $add = $db->prepare('update carrello set quantita = :q where id_utente = :u and id_biglietto = :b');
+    $add->execute(['q' => ($inCart['quantita'] + $_GET['c']), 'u' => $_GET['user'], 'b' => $_GET['biglietto']]);
 
 
     echo json_encode(1);

@@ -26,7 +26,7 @@ function displayCart() {
                     <div class="qD">
                         <p class="itemQ">
                             <label for="<?= $bE['id_carrello'] ?>">Quantità:</label>
-                            <input class="q" id="<?= $bE['id_carrello'] ?>" value="<?= $bE['quantità'] ?>" min="1" onchange="changeQ(this)" type="number">
+                            <input class="q" id="<?= $bE['id_carrello'] ?>" value="<?= $bE['quantita'] ?>" min="1" onchange="changeQ(this)" type="number">
                         </p>
 
                         <span id='<?= $bE['id_carrello'] ?>'  class="material-symbols-outlined del" onclick="remove(this)">
@@ -51,7 +51,7 @@ function total() {
         $t = 0;
             if (count($carrelloU) > 0) {
                 foreach ($carrelloU as $bE) {
-                    $t += $bE['prezzo'] * $bE['quantità'];
+                    $t += $bE['prezzo'] * $bE['quantita'];
                 }
             }
         ?>

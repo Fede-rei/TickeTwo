@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6499d85f-9ee5-4abf-a618-4cbcafd7f86f" name="Changes" comment="sistemazione css dell'header e controllo id utente in eventPage.php">
-      <change beforePath="$PROJECT_DIR$/Pages/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/search_Results.php" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/search_Results.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/ticketwo_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/ticketwo_db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/swiper.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/swiper.php" afterDir="false" />
+    <list default="true" id="6499d85f-9ee5-4abf-a618-4cbcafd7f86f" name="Changes" comment="bo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/aggiungi.php" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/aggiungi.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +119,7 @@
       <workItem from="1715151727902" duration="53000" />
       <workItem from="1715151796016" duration="9824000" />
       <workItem from="1715188159351" duration="29391000" />
-      <workItem from="1715288290886" duration="7088000" />
+      <workItem from="1715288290886" duration="8441000" />
     </task>
     <task id="LOCAL-00001" summary="Struttura cartelle">
       <option name="closed" value="true" />
@@ -460,7 +457,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715364665681</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="sistemazione merda di simone">
+      <option name="closed" value="true" />
+      <created>1715367293039</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1715367293040</updated>
+    </task>
+    <task id="LOCAL-00044" summary="bo">
+      <option name="closed" value="true" />
+      <created>1715367342397</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1715367342397</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,8 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="collegamento css pagina signup.php" />
-    <MESSAGE value="inizio signup.css" />
     <MESSAGE value="pagina signup.php con tutte le funzionalità" />
     <MESSAGE value="funzionalità login &#10;sistemazione css vari&#10;aggiunta carrello al db" />
     <MESSAGE value="inizio implementazione db in cart.php&#10;couninuazione cart.css" />
@@ -515,6 +526,8 @@
     <MESSAGE value="con modifiche di fede" />
     <MESSAGE value="cerrezioni varie" />
     <MESSAGE value="sistemazione css dell'header e controllo id utente in eventPage.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="sistemazione css dell'header e controllo id utente in eventPage.php" />
+    <MESSAGE value="sistemazione merda di simone" />
+    <MESSAGE value="bo" />
+    <option name="LAST_COMMIT_MESSAGE" value="bo" />
   </component>
 </project>
