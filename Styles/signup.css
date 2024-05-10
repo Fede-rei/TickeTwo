@@ -24,7 +24,7 @@ input {
 }
 
 .searchBar {
-    visibility: collapse;
+    visibility: hidden;
 }
 
 button {

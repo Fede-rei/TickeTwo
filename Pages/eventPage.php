@@ -46,14 +46,14 @@ if (isset($db)) {
 
 <div class="imgEvent" style="background-image: url('<?=$rootPath."/Images/". $infoE['image'] ?>')">
     <!-- Link per tornare indietro -->
-    <a href="..">
-        <div class="back">
+    <div class="back">
+        <a href="..">
             <!-- Icona per tornare indietro -->
             <span class="material-symbols-outlined">
                 keyboard_backspace
             </span>
-        </div>
-    </a>
+        </a>
+    </div>
 </div>
 
 <div class="deets">

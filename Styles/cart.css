@@ -39,7 +39,7 @@
     cursor: pointer;
 }
 
-button {
+.acq {
     font-family: Bahnschrift, serif;
     border-radius: 15px;
     padding: 5px;

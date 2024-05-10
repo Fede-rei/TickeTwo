@@ -14,6 +14,7 @@ header {
 }
 
 body {
+    font-family: Bahnschrift, serif;
     margin: 0;
 }
 
@@ -173,4 +174,35 @@ footer {
 .cerca {
     display: flex;
     width: 100%;
+    align-items: center;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    color: transparent;
+    height: 100vh;
+}
+
+button, input{
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: unset;
+}
+
+
+input,
+button,
+select,
+optgroup,
+textarea {
+    line-height: normal;
+}
+
+button:hover{
+    cursor: pointer;
 }

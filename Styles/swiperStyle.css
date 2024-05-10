@@ -1,10 +1,3 @@
-body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
-}
-
 .swiper-container {
     width: 80%;
     margin: 50px auto;

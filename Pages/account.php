@@ -85,7 +85,7 @@ if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] ==
         <label for="p2">Mail:</label>
         <h3 id="p2"> <?= $info['mail'] ?></h3>
         <form action="logout.php">
-            <button type="submit">Logout</button>
+            <button type="submit" class="accB">Logout</button>
         </form>
     </div>
     <div id="new">
@@ -93,12 +93,12 @@ if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] ==
         Modifica Profilo<br>
         <form method='post' enctype="multipart/form-data">
             <label for="pic">Foto profilo: </label>
-            <input type="file" accept="image/jpeg image/png image/jpg image/gif" name="pic" id="pic" title="Inserisci un' immagine"><br>
+            <input class="pi" type="file" accept="image/jpeg image/png image/jpg image/gif" name="pic" id="pic" title="Inserisci un' immagine"><br>
             <label for="p1">Username: </label>
-            <input type="text" id="p1" name="us"> <br>
+            <input class="pi" type="text" id="p1" name="us"> <br>
             <label for="p2">Mail:</label>
-            <input type="text" id="p2" name="pa"> <br>
-            <button type="submit">Invia</button>
+            <input class="pi" type="text" id="p2" name="pa"> <br>
+            <button type="submit" class="accB">Invia</button>
         </form>
     </div>
 </div>

@@ -6,6 +6,7 @@
     margin-top: 10px;
     min-height: 327px;
 }
+
 #pfp{
     grid-area: pfp;
     display: flex;
@@ -25,10 +26,12 @@
 
 
 }
+
 #data{
     grid-area: data;
 
 }
+
 #accImg{
     display: inline-block;
     width: 100%;
@@ -36,6 +39,7 @@
     object-fit: contain;
     border-radius: 50%;
 }
+
 #new{
     grid-area: new;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
@@ -44,10 +48,12 @@
     text-align: center;
     border: black solid 1px;
 }
-input{
+
+.pi{
     margin: 10px;
 }
-button{
+
+.accB{
     border-radius: 5px;
     background-color: #6fd6d3
 }
