@@ -4,7 +4,7 @@ include 'include/db_inc.php';
 
 if (isset($db)) {
     $events = $db->query('select * from evento');
-    $eventsarray = $events->fetchall();
+    $eventsarray = $events->fetchall(PDO::FETCH_ASSOC);
 }
 ?>
 <div class="swiper-container">
@@ -13,7 +13,7 @@ if (isset($db)) {
             <a href="Pages/eventPage.php?eventId=<?= $item['id_evento'] ?>">
                 <div class="swiper-slide">
                     <?= $item['nome'] ?>
-                    <img class="event-image" src="Images<?= $item['image'] ?>">
+                    <img class="event-image" src="Images/<?= $item['image'] ?>">
                 </div>
             </a>
         <?php endforeach; ?>

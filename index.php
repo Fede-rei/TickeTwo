@@ -2,20 +2,6 @@
 // Avvia la sessione
 session_start();
 
-
-// Includi il file di configurazione del database
-include 'include/db_inc.php';
-
-// Se l'utente ha effettuato l'accesso ma non ha ancora un'immagine del profilo nella sessione, recupera l'immagine dal database
-if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
-    if (isset($db)) {
-        $pfpq = $db->query('select pfp from utente where id_utente = ' . $_SESSION['user']);
-        $_SESSION['pic'] = $pfpq->fetch()['pfp'];
-    }
-}
-elseif(!isset($_SESSION['user']))
-    $_SESSION['pic'] = "0.png";
-
 // Imposta il percorso radice del sito
 $rootPath = './';
 

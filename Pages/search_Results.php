@@ -65,26 +65,24 @@ $risultati = $stmt->fetchAll();
 
         <?php foreach ($risultati as $riga) { ?>
                 <section class='sr_card'>;
-                    <div class='sr_card_content'>
-                        <!-- Aggiungi l'immagine qui con il link fornito nel campo "image" -->
-                        <div class='img_sr_card'>
-                            <img src='<?= $riga["image"] ?>' alt='Immagine evento'>
-                        </div>
+                    <a href="eventPage.php?eventId=<?= $riga['id_evento'] ?>">
+                        <div class='sr_card_content'>
+                            <!-- Aggiungi l'immagine qui con il link fornito nel campo "image" -->
+                            <div class='img_sr_card'>
+                                <img src='<?=$rootPath."/Images/". $riga['image']?>' alt='Immagine evento'>
+                            </div>
 
-                        <div class='text_sr_card'>
-                            <!-- Stampa il resto delle informazioni dell'evento -->
-                            <h2><?= $riga["nome"] ?></h2>
-                            <p><?= $riga["descrizione"] ?></p>
-                            <p>Data: <?= $riga["data"] ?></p>
-                            <p>Luogo: <?= $riga["luogo"] ?></p>
-                            <p>Posti disponibili: <?= $riga["posti"] ?></p>
+                            <div class='text_sr_card'>
+                                <!-- Stampa il resto delle informazioni dell'evento -->
+                                <h2><?= $riga["nome"] ?></h2>
+                                <p><?= $riga["descrizione"] ?></p>
+                                <p>Data: <?= $riga["data"] ?></p>
+                                <p>Luogo: <?= $riga["luogo"] ?></p>
+                                <p>Posti disponibili: <?= $riga["posti"] ?></p>
 
-                            <!-- form per reindirizzare alla pagina dell'evento cliccando sul bottone.. -->
-                            <form>
-                                <input class='button' type='submit' value='Vai'>
-                            </form>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </section>
         <?php } ?>
 

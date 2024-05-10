@@ -21,12 +21,6 @@ if (isset($db)) {
     $infoE = $infoEq->fetch();
 }
 
-// Se l'utente ha effettuato l'accesso ma non ha ancora un'immagine del profilo nella sessione, recupera l'immagine dal database
-if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
-    $pfpq = $db->prepare('select pfp from utente where id_utente = :u');
-    $_SESSION['pic'] = $pfpq->execute(['u' => $_SESSION['user']]);
-    $_SESSION['pic'] = $pfpq->fetch()['pfp'];
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +33,7 @@ if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="../Images/ticketwoW.png" rel="icon" type="image/png">
     <!-- Includi lo script per il contatore dei biglietti -->
+    <!-- Includi lo script per il contatore dei biglietti -->
     <?php if(isset($_SESSION['user'])) {
     echo '<script type="text/javascript"> var uid = ' . $_SESSION['user'] . '</script>';
     ?><script src="../Scripts/counter.js" defer></script>
@@ -49,7 +44,7 @@ if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
 <body>
 <?php include '../include/header.php'; ?>
 
-<div class="imgEvent" style="background-image: url('<?= $infoE['image'] ?>')">
+<div class="imgEvent" style="background-image: url('<?=$rootPath."/Images/". $infoE['image'] ?>')">
     <!-- Link per tornare indietro -->
     <a href="..">
         <div class="back">
