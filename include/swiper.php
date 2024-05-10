@@ -1,7 +1,5 @@
 <?php
 // Includi il file di configurazione del database
-include 'include/db_inc.php';
-
 if (isset($db)) {
     $events = $db->query('select * from evento');
     $eventsarray = $events->fetchall(PDO::FETCH_ASSOC);

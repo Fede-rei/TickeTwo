@@ -50,44 +50,7 @@ $rootPath = './';
 
 <div>
     <!-- Carosello -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <!-- Indicatori di navigazione -->
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <!-- Immagini del carosello -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" id="imgHeight" src="Images/ticketwo.png" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3 class="eventText">BO</h3>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" id="imgHeight" src="Images/0.png" alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3 class="eventText">BO</h3>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" id="imgHeight" src="Images/blu.jpg" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3 class="eventText">BO</h3>
-                    </div>
-                </div>
-            </div>
-            <!-- Controlli del carosello -->
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+    <?php include 'include/carosello.php'; ?>
 
     <p class="text-center text-3 mt-3">Eventi: </p>
     <?php include 'include/swiper.php'; ?>
