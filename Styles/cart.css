@@ -18,7 +18,7 @@
 
 .q {
     border-radius: 15px;
-    width: 20px;
+    width: 50px;
 }
 
 .qD {
@@ -37,4 +37,12 @@
 
 .del:hover {
     cursor: pointer;
+}
+
+button {
+    font-family: Bahnschrift, serif;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px 15px;
+    width: -webkit-fill-available;
 }

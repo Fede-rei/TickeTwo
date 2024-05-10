@@ -25,10 +25,14 @@ if(isset($_POST['username'], $_POST['email'], $_POST['pw'], $_POST['cpw']) && ($
     include '../include/db_inc.php';
 
     // Verifica se l'email è già presente nel database
-    $emailsQ = $db->query('select * from utente where mail = "' . $email . '"');
-    $emails = $emailsQ->fetch();
+    if(isset($db)) {
+        $emailsQ = $db->prepare('select * from utente where mail = :e');
+        $emails = $emailsQ->execute(['e' => $email]);
+        $emails = $emailsQ->fetch();
+    }
     // Verifica se l'username è già presente nel database
-    $usersQ = $db->query('select * from utente where username = "' . $user . '"');
+    $usersQ = $db->prepare('select * from utente where username = :u');
+    $users = $usersQ->execute(['u' => $user]);
     $users = $usersQ->fetch();
 
     // Controlla se l'email è valida
@@ -46,7 +50,8 @@ if(isset($_POST['username'], $_POST['email'], $_POST['pw'], $_POST['cpw']) && ($
                         $qp->execute(['u' => $user, 'p' => base64_encode($pass), 'e' => $email]);
 
                         // Ottieni l'ID dell'utente appena registrato
-                        $uIdQ = $db->query('select * from utente where username = "' . $user . '"');
+                        $uIdQ = $db->prepare('select * from utente where username = :u');
+                        $uId = $uIdQ->execute(['u' => $user]);
                         $uId = $uIdQ->fetch();
 
                         // Imposta l'ID dell'utente nella sessione e reindirizza alla homepage

@@ -16,7 +16,8 @@ if (!isset($_SESSION['user'])) {
 
 // Recupera le informazioni dell'utente dal database
 if (isset($db)) {
-    $q = $db->query('SELECT * FROM utente WHERE id_utente=' . $_SESSION['user']);
+    $q = $db->prepare('SELECT * FROM utente WHERE id_utente = :u');
+    $info = $q->execute(['u' => $_SESSION['user']]);
     $info = $q->fetch();
     $_SESSION['pic'] = $info['pfp'];
 }
@@ -47,7 +48,8 @@ if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] ==
     if(is_uploaded_file($imagetemp)) {
         if(move_uploaded_file($imagetemp, $imagePath . $imagename)) {
             // Aggiorna il percorso dell'immagine nel database
-            $db->query('UPDATE utente SET pfp = "' . $imagename . '" WHERE id_utente = "' . $_SESSION['user'] . '";');
+            $updateImg = $db->prepare('UPDATE utente SET pfp = :i WHERE id_utente = :u');
+            $updateImg->execute(['i' => $imagename, 'u' => $_SESSION['user']]);
             $_SESSION['pic'] = $imagename;
         }
     }

@@ -18,8 +18,9 @@ include '../include/operazioni_cart.php';
 // Se l'utente ha effettuato l'accesso ma non ha ancora un'immagine del profilo nella sessione, recupera l'immagine dal database
 if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
     if (isset($db)) {
-        $pfpq = $db->query('select pfp from utente where id_utente = ' . $_SESSION['user']);
-        $pfp = $pfpq->fetch()['pfp'];
+        $pfpq = $db->prepare('select pfp from utente where id_utente = :u');
+        $_SESSION['pic'] = $pfpq->execute(['u' => $_SESSION['user']]);
+        $_SESSION['pic'] = $pfpq->fetch()['pfp'];
     }
 }
 ?>
@@ -34,6 +35,7 @@ if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="../Images/ticketwoW.png" rel="icon" type="image/png">
     <!-- Includi lo script per il contatore dei biglietti -->
+    <?= '<script type="text/javascript">var uid = ' . $_SESSION['user'] . '</script>' ?>
     <script src="../Scripts/remove.js" defer></script>
     <script src="../Scripts/search.js" defer></script>
 </head>

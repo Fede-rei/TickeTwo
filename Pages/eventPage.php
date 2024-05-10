@@ -21,13 +21,15 @@ include '../include/db_inc.php';
 
 // Recupera le informazioni sull'evento selezionato dal database
 if (isset($db)) {
-    $infoEq = $db->query('select * from Evento e inner join Biglietto b on e.id_evento = b.id_event where id_evento = ' . $_GET['eventId']);
+    $infoEq = $db->prepare('select * from Evento e inner join Biglietto b on e.id_evento = b.id_event where id_evento = :e');
+    $infoE = $infoEq->execute([':e' => $_GET['eventId']]);
     $infoE = $infoEq->fetch();
 }
 
 // Se l'utente ha effettuato l'accesso ma non ha ancora un'immagine del profilo nella sessione, recupera l'immagine dal database
 if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
-    $pfpq = $db->query('select pfp from utente where id_utente = ' . $_SESSION['user']);
+    $pfpq = $db->prepare('select pfp from utente where id_utente = :u');
+    $_SESSION['pic'] = $pfpq->execute(['u' => $_SESSION['user']]);
     $_SESSION['pic'] = $pfpq->fetch()['pfp'];
 }
 ?>
@@ -90,7 +92,7 @@ if(!isset($_SESSION['pic']) && isset($_SESSION['user'])) {
 
         <!-- Pulsanti per aggiungere al carrello o acquistare ora -->
         <button value="<?= $infoE['id_Biglietto'] ?>" class="aggCarr">Aggiungi al carrello</button>
-        <button id="acqOra">Acquista ora</button>
+        <button value="<?= $infoE['id_Biglietto'] ?>" class="acqOra">Acquista ora</button>
     </div>
 </div>
 

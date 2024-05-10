@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS Acquisti(
     id_acquisto INT AUTO_INCREMENT,
     id_cliente INT,
     id_ticket INT,
+    q int,
     PRIMARY KEY(id_acquisto),
     FOREIGN KEY(id_cliente) REFERENCES Utente(id_utente),
     FOREIGN KEY(id_ticket) REFERENCES Biglietto(id_Biglietto)
