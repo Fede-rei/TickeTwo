@@ -45,7 +45,7 @@ let acqOra = document.querySelector('.acqOra')
 acqOra.onclick = function() {
     let req = new XMLHttpRequest()
 
-    req.open('get', 'acquista.php?biglietto=' + acqOra.value + '&user=' + uid + '&c=' + c.value)
+    req.open('get', '../include/acquista.php?biglietto=' + acqOra.value + '&user=' + uid + '&c=' + c.value)
     req.send()
 
     req.onreadystatechange = function() {
