@@ -91,7 +91,7 @@ if(isset($_POST['username'], $_POST['email'], $_POST['pw'], $_POST['cpw']) && ($
 
 <div id="chest">
     <!-- Form per la registrazione -->
-    <form method="post">
+    <form method="post" class="signup">
         <label for="p1">Username: </label>
         <input type="text" id="p1" name="username" placeholder="Username"><br>
         <label for="p2">Email: </label>

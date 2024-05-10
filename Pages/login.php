@@ -58,7 +58,7 @@ if(isset($_POST['ue'], $_POST['pw']) && $_POST['ue'] !== '' && $_POST['pw'] !== 
 
 <div id="chest">
     <!-- Form per il login -->
-    <form method="post">
+    <form method="post" class="login">
         <label for="p1">Username/Email: </label>
         <input type="text" id="p1" name="ue" placeholder="Username/Email"><br>
         <label for="p2">Password: </label>
