@@ -15,12 +15,6 @@ if (!isset($_SESSION['user'])) {
 }
 
 // Recupera le informazioni dell'utente dal database
-if (isset($db)) {
-    $q = $db->prepare('SELECT * FROM utente WHERE id_utente = :u');
-    $info = $q->execute(['u' => $_SESSION['user']]);
-    $info = $q->fetch();
-    $_SESSION['pic'] = $info['pfp'];
-}
 
 // Gestisci l'upload dell'immagine del profilo se è stata inviata tramite il modulo di caricamento
 if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] == 0){
@@ -48,13 +42,54 @@ if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] ==
     if(is_uploaded_file($imagetemp)) {
         if(move_uploaded_file($imagetemp, $imagePath . $imagename)) {
             // Aggiorna il percorso dell'immagine nel database
-            $updateImg = $db->prepare('UPDATE utente SET pfp = :i WHERE id_utente = :u');
-            $updateImg->execute(['i' => $imagename, 'u' => $_SESSION['user']]);
-            $_SESSION['pic'] = $imagename;
+            if(isset($db)) {
+                $updateImg = $db->prepare('UPDATE utente SET pfp = :i WHERE id_utente = :u');
+                $updateImg->execute(['i' => $imagename, 'u' => $_SESSION['user']]);
+                $_SESSION['pic'] = $imagename;
+            }
         }
     }
 }
 
+$vError = '';
+if(isset($_POST['us']) && $_POST['us'] !== '') {
+    $usersQ = $db->prepare('select * from utente where username = :u');
+    $users = $usersQ->execute(['u' => $_POST['us']]);
+    $users = $usersQ->fetch();
+
+    if(!isset($users['username'])) {
+        $updateImg = $db->prepare('UPDATE utente SET username = :u WHERE id_utente = :ui');
+        $updateImg->execute(['u' => $_POST['us'], 'ui' => $_SESSION['user']]);
+    } else {
+        $vError .= 'Username già in uso';
+    }
+}
+
+
+$emailR = "/^([a-zA-Z0-9\.]+@+[a-zA-Z]+(\.)+[a-zA-Z]{2,3})$/";
+if(isset($_POST['ma']) && $_POST['ma'] !== '') {
+    $emailsQ = $db->prepare('select * from utente where mail = :e');
+    $emails = $emailsQ->execute(['e' => $_POST['ma']]);
+    $emails = $emailsQ->fetch();
+
+    if (!isset($emails['mail'])) {
+        if (preg_match($emailR, $_POST['ma'])) {
+            $updateMail = $db->prepare('UPDATE utente SET mail = :m WHERE id_utente = :u');
+            $updateMail->execute(['m' => $_POST['ma'], 'u' => $_SESSION['user']]);
+        } else {
+            $vError .= '<br>Email invalida';
+        }
+    }
+    else {
+        $vError .= '<br>Email già in uso';
+    }
+}
+
+
+$q = $db->prepare('SELECT * FROM utente WHERE id_utente = :u');
+$info = $q->execute(['u' => $_SESSION['user']]);
+$info = $q->fetch();
+$_SESSION['pic'] = $info['pfp'];
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -88,19 +123,20 @@ if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] ==
             <button type="submit" class="accB">Logout</button>
         </form>
     </div>
-    <div id="new">
-        <!-- Form per la modifica del profilo -->
-        Modifica Profilo<br>
+    <!-- Form per la modifica del profilo -->
+    <fieldset id="new">
+        <legend>Modifica Profilo</legend>
         <form method='post' enctype="multipart/form-data">
             <label for="pic">Foto profilo: </label>
             <input class="pi" type="file" accept="image/jpeg image/png image/jpg image/gif" name="pic" id="pic" title="Inserisci un' immagine"><br>
             <label for="p1">Username: </label>
             <input class="pi" type="text" id="p1" name="us"> <br>
             <label for="p2">Mail:</label>
-            <input class="pi" type="text" id="p2" name="pa"> <br>
+            <input class="pi" type="text" id="p2" name="ma"> <br>
             <button type="submit" class="accB">Invia</button>
+            <p class="errorM"><?= $vError ?></p>
         </form>
-    </div>
+    </fieldset>
 </div>
 <?php include '../include/footer.php' ?>
 </body>
