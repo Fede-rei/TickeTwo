@@ -1,0 +1,24 @@
+#container{
+    margin: 30px;
+    display: grid;
+    grid-template-areas: 'locandina desc'
+                         'titolo    desc';
+}
+#desc{
+    grid-area: desc;
+}
+#locandina{
+    grid-area: locandina;
+}
+#titolo{
+    grid-area: titolo;
+}
+textarea{
+    resize: none;
+    margin: 20px;
+
+    width: 500px;
+    height: 395px;
+    border-radius: 15px;
+    box-shadow: 5px 5px rgba(23,26,24,0.76);
+}
