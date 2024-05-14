@@ -47,10 +47,7 @@
     margin: 35px ;
     text-align: center;
     border: black solid 1px;
-}
-
-.pi{
-    margin: 10px;
+    height: fit-content;
 }
 
 .accB{
@@ -62,4 +59,23 @@
 
 .errorM {
     color: red;
+}
+
+#bF {
+    font-family: Bahnschrift;
+    background-color: #F0F0F0;
+    padding: 7px 15px;
+    border: 2px solid;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+#pic {
+    display: none;
+}
+
+.li {
+    margin: 10px;
+    border-radius: 15px;
+    padding: 5px;
 }

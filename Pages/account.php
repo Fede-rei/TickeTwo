@@ -61,7 +61,8 @@ if(isset($_POST['us']) && $_POST['us'] !== '') {
         $updateImg = $db->prepare('UPDATE utente SET username = :u WHERE id_utente = :ui');
         $updateImg->execute(['u' => $_POST['us'], 'ui' => $_SESSION['user']]);
     } else {
-        $vError .= 'Username già in uso';
+        if($users['id_utente'] !== $_SESSION['user'])
+            $vError .= 'Username già in uso';
     }
 }
 
@@ -81,7 +82,8 @@ if(isset($_POST['ma']) && $_POST['ma'] !== '') {
         }
     }
     else {
-        $vError .= '<br>Email già in uso';
+        if($emails['id_utente'] !== $_SESSION['user'])
+            $vError .= '<br>Email già in uso';
     }
 }
 
@@ -107,7 +109,6 @@ $_SESSION['pic'] = $info['pfp'];
 <body>
 <?php include '../include/header.php' ?>
 
-
 <div id="container">
     <div id="pfp">
         <!-- Visualizza l'immagine del profilo dell'utente -->
@@ -127,12 +128,17 @@ $_SESSION['pic'] = $info['pfp'];
     <fieldset id="new">
         <legend>Modifica Profilo</legend>
         <form method='post' enctype="multipart/form-data">
-            <label for="pic">Foto profilo: </label>
-            <input class="pi" type="file" accept="image/jpeg image/png image/jpg image/gif" name="pic" id="pic" title="Inserisci un' immagine"><br>
+            <div>
+            <label for="bF">Foto profilo: </label>
+            <label id="bF">
+                Seleziona il file
+                <input type="file" accept="image/jpeg image/png image/jpg image/gif" name="pic" id="pic" title="Inserisci un' immagine">
+            </label>
+            </div><br>
             <label for="p1">Username: </label>
-            <input class="pi" type="text" id="p1" name="us"> <br>
+            <input class="li" type="text" id="p1" name="us" placeholder="<?= $info['username'] ?>"><br>
             <label for="p2">Mail:</label>
-            <input class="pi" type="text" id="p2" name="ma"> <br>
+            <input class="li" type="text" id="p2" name="ma" placeholder="<?= $info['mail'] ?>"> <br>
             <button type="submit" class="accB">Invia</button>
             <p class="errorM"><?= $vError ?></p>
         </form>
