@@ -42,7 +42,7 @@ if(isset($_POST['ue'], $_POST['pw']) && $_POST['ue'] !== '' && $_POST['pw'] !== 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>TickeTwo - Login</title>
+    <title>TickeTwo - LogIn</title>
     <!-- Includi i fogli di stile -->
     <link rel="stylesheet" href="../Styles/login.css">
     <link rel="stylesheet" href="../Styles/header-footer.css">
@@ -58,15 +58,18 @@ if(isset($_POST['ue'], $_POST['pw']) && $_POST['ue'] !== '' && $_POST['pw'] !== 
 
 <div id="chest">
     <!-- Form per il login -->
-    <form method="post" class="login">
-        <label for="p1">Username/Email: </label>
-        <input class="li" type="text" id="p1" name="ue" placeholder="Username/Email"><br>
-        <label for="p2">Password: </label>
-        <input class="li" type="password" name="pw" id="p2" placeholder="Password"><br>
-        <button type="submit">Submit</button>
-        <!-- Visualizza gli eventuali errori di login -->
-        <p class="vError"><?= $vError ?></p>
-    </form>
+    <fieldset class="login">
+        <legend>LogIn</legend>
+        <form method="post">
+            <label for="p1">Username/Email: </label>
+            <input class="li" type="text" id="p1" name="ue" placeholder="Username/Email"><br>
+            <label for="p2">Password: </label>
+            <input class="li" type="password" name="pw" id="p2" placeholder="Password"><br>
+            <button type="submit">Submit</button>
+            <!-- Visualizza gli eventuali errori di login -->
+            <p class="vError"><?= $vError ?></p>
+        </form>
+    </fieldset>
     <!-- Link per accedere alla pagina di registrazione -->
     <a href="signup.php">Registrati...</a>
 </div>

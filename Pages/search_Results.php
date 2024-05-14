@@ -36,29 +36,34 @@ if(isset($db)){
         include '../include/header.php';
         ?>
 
-        <?php foreach ($risultati as $riga) { ?>
-                <section class='sr_card'>
-                    <a href="eventPage.php?eventId=<?= $riga['id_evento'] ?>">
-                        <div class='sr_card_content'>
-                            <!-- Aggiungi l'immagine qui con il link fornito nel campo "image" -->
-                            <div class='img_sr_card'>
-                                <img src='<?=$rootPath."/Images/". $riga['image']?>' alt='Immagine evento'>
+        <div class="sRes">
+            <?php if(isset($risultati[0])) {
+                foreach ($risultati as $riga) { ?>
+                    <section class='sr_card'>
+                        <a href="eventPage.php?eventId=<?= $riga['id_evento'] ?>">
+                            <div class='sr_card_content'>
+                                <!-- Aggiungi l'immagine qui con il link fornito nel campo "image" -->
+                                <div class='img_sr_card'>
+                                    <img src='<?=$rootPath."/Images/". $riga['image']?>' alt='Immagine evento'>
+                                </div>
+
+                                <div class='text_sr_card'>
+                                    <!-- Stampa il resto delle informazioni dell'evento -->
+                                    <h2><?= $riga["nome"] ?></h2>
+                                    <p><?= $riga["descrizione"] ?></p>
+                                    <p>Data: <?= $riga["data"] ?></p>
+                                    <p>Luogo: <?= $riga["luogo"] ?></p>
+                                    <p>Posti disponibili: <?= $riga["posti"] ?></p>
+
+                                </div>
                             </div>
-
-                            <div class='text_sr_card'>
-                                <!-- Stampa il resto delle informazioni dell'evento -->
-                                <h2><?= $riga["nome"] ?></h2>
-                                <p><?= $riga["descrizione"] ?></p>
-                                <p>Data: <?= $riga["data"] ?></p>
-                                <p>Luogo: <?= $riga["luogo"] ?></p>
-                                <p>Posti disponibili: <?= $riga["posti"] ?></p>
-
-                            </div>
-                        </div>
-                    </a>
-                </section>
-        <?php } ?>
-
+                        </a>
+                    </section>
+            <?php }
+            } else { ?>
+                <p class="nEl">Nessun evento trovato</p>
+            <?php } ?>
+        </div>
 
         <?php include '../include/footer.php'; ?>
     </body>

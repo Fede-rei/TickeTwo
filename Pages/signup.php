@@ -77,7 +77,7 @@ if(isset($_POST['username'], $_POST['email'], $_POST['pw'], $_POST['cpw']) && ($
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>TickeTwo - Signup</title>
+    <title>TickeTwo - SignUp</title>
     <link rel="stylesheet" href="../Styles/signup.css">
     <link rel="stylesheet" href="../Styles/header-footer.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
@@ -91,19 +91,22 @@ if(isset($_POST['username'], $_POST['email'], $_POST['pw'], $_POST['cpw']) && ($
 
 <div id="chest">
     <!-- Form per la registrazione -->
-    <form method="post" class="signup">
-        <label for="p1">Username: </label>
-        <input type="text" id="p1" name="username" placeholder="Username"><br>
-        <label for="p2">Email: </label>
-        <input type="email" id="p2" name="email" placeholder="Email"><br>
-        <label for="p3">Password: </label>
-        <input type="password" name="pw" id="p3" placeholder="Password"><br>
-        <label for="p4">Conferma Password: </label>
-        <input type="password" name="cpw" id="p4" placeholder="Password"><br>
-        <button type="submit">Submit</button>
-        <!-- Visualizza gli eventuali errori di validazione -->
-        <p class="vError"><?= $vError ?></p>
-    </form>
+    <fieldset class="signup">
+        <legend>SignUp</legend>
+        <form method="post">
+            <label for="p1">Username: </label>
+            <input type="text" id="p1" name="username" placeholder="Username"><br>
+            <label for="p2">Email: </label>
+            <input type="email" id="p2" name="email" placeholder="Email"><br>
+            <label for="p3">Password: </label>
+            <input type="password" name="pw" id="p3" placeholder="Password"><br>
+            <label for="p4">Conferma Password: </label>
+            <input type="password" name="cpw" id="p4" placeholder="Password"><br>
+            <button type="submit">Submit</button>
+            <!-- Visualizza gli eventuali errori di validazione -->
+            <p class="vError"><?= $vError ?></p>
+        </form>
+    </fieldset>
     <!-- Link per accedere alla pagina di login -->
     <a href="login.php">Accedi...</a>
 </div>

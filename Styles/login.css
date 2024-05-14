@@ -19,8 +19,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-height: 518.6px;
-    max-height: 518.6px;
+    height: 69vh;
 }
 
 .searchBar {

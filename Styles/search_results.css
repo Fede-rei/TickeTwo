@@ -48,4 +48,16 @@
     font-weight: 700;
     border:none;
 }
-.button:hover{background-color: cornflowerblue;}
+
+.button:hover{
+    background-color: cornflowerblue;
+}
+
+.sRes {
+    text-align: center;
+    min-height: 65vh;
+}
+
+.nEl {
+    color: red;
+}
