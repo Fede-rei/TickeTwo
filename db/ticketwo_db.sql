@@ -40,6 +40,16 @@ CREATE TABLE IF NOT EXISTS Acquisti(
     FOREIGN KEY(id_ticket) REFERENCES Biglietto(id_Biglietto)
 );
 
+CREATE TABLE IF NOT EXISTS Carrello(
+                                       id_carrello INT AUTO_INCREMENT,
+                                       id_biglietto INT,
+                                       id_utente INT,
+                                       quantita INT,
+                                       PRIMARY KEY(id_carrello),
+                                       FOREIGN KEY(id_utente) REFERENCES Utente(id_utente),
+                                       FOREIGN KEY(id_biglietto) REFERENCES Biglietto(id_Biglietto)
+);
+
 CREATE TRIGGER controllo_quantità_biglietti
     BEFORE INSERT ON Acquisti
     FOR EACH ROW
@@ -58,17 +68,24 @@ BEGIN
     UPDATE Evento SET posti = posti - NEW.q WHERE id_evento = NEW.id_ticket;
 END;
 
+CREATE TRIGGER aggiornamento_posti_disponibili_update
+    AFTER UPDATE ON Acquisti
+    FOR EACH ROW
+BEGIN
+    UPDATE Evento SET posti = posti - (NEW.q - OLD.q) WHERE id_evento = NEW.id_ticket;
+END;
 
 
-
-CREATE TABLE IF NOT EXISTS Carrello(
-    id_carrello INT AUTO_INCREMENT,
-    id_biglietto INT,
-    id_utente INT,
-    quantita INT,
-    PRIMARY KEY(id_carrello),
-    FOREIGN KEY(id_utente) REFERENCES Utente(id_utente),
-    FOREIGN KEY(id_biglietto) REFERENCES Biglietto(id_Biglietto)
-);
-
+-- pw: !Admin2024!
 INSERT INTO Utente (id_utente,username,password,tipo,mail,pfp) VALUES (0,'Admin','$2y$10$Dwi5SNVH1O3jZp7SlMIykuA9M0hX9YJod5mlxn1ZhvuqoJk86qPhO','1','Admin@ticketwo.com','0.png');
+
+INSERT INTO Evento (nome, descrizione, data, luogo, image, posti) VALUES
+                                                                      ('Concerto Rock', 'Un concerto emozionante con le migliori band rock della citta.', '2024-06-15 20:00:00', 'Teatro XYZ', 'concerto_rock.jpeg', 100),
+                                                                      ('Mostra d Arte Moderna', 'Una mostra che esplora le ultime tendenze dell arte contemporanea.', '2024-07-10 10:00:00', 'Galleria d Arte ABC', 'mostra_arte.jpeg', 50),
+                                                                      ('Corso di Cucina Italiana', 'Impara a cucinare i piatti italiani piu famosi con uno chef professionista.', '2024-08-05 18:00:00', 'Scuola di Cucina Italia', 'corso_cucina.jpeg', 30);
+
+
+INSERT INTO Biglietto (prezzo, id_event) VALUES
+                                             (25.00, 1), -- concerto rock
+                                             (15.00, 2), -- mostra d arte
+                                             (20.00, 3); -- corso di cucina
