@@ -18,16 +18,37 @@ $rootPath = '../';
 <?php include $rootPath . 'include/header.php' ?>
 <body>
 <form id="container">
-    <input type="file" name="locandina" id="locandina"><br>
+    <div id="locandina">
+        <div>
+            <label for="bF">Locandina evento: </label> <br><br>
+            <label id="bF">
+                Seleziona il file
+                <input type="file" accept="image/jpeg image/png image/jpg image/gif" name="pic" id="pic" title="Inserisci un' immagine">
+            </label>
+        </div>
+    </div><br>
     <br>
     <br>
     <label for="p1" id="titolo">Titolo:
-    <input type="text" name="titolo" id="p1">
+    <input type="text" name="titolo" id="p1" class="li"> <br> <br>
+        <button type="button" id="submit" class="butt">Aggiungi</button>
     </label>
+    <label for="p2" id="luogo">Luogo:
+        <input type="text" id="p2" class="li">
+    </label>
+    <div id="date">
+    <label for="p3">Data Inizio:
+        <input type="date" id="p2" class="li">
+    </label>
+    <label for="p4">Data Fine:
+        <input type="date" id="p2" class="li">
+    </label>
+    </div>
     <label for="textarea" id="desc"> Descrizione:
-    <textarea name="desc">
+    <textarea name="desc" maxlength="500">
     </textarea>
     </label>
+
 </form>
 </body>
 <?php include $rootPath . 'include/footer.php' ?>
