@@ -90,8 +90,8 @@ if(isset($_SERVER['HTTP_REFERER'])) {
 
         <!-- Pulsanti per aggiungere al carrello o acquistare ora -->
         <?php if(isset($_SESSION['user'])) { ?>
-            <button value = "<?= $infoE['id_Biglietto'] ?>" class="aggCarr" > Aggiungi al carrello </button >
-            <button value = "<?= $infoE['id_Biglietto'] ?>" class="acqOra" > Acquista ora </button >
+            <button value = "<?= $infoE['id_Biglietto'] ?>" class="aggCarr b" > Aggiungi al carrello </button >
+            <button value = "<?= $infoE['id_Biglietto'] ?>" class="acqOra b" > Acquista ora </button >
         <?php } else { ?>
             <button onclick="location.href = 'login.php'"> Aggiungi al carrello </button >
             <button onclick="location.href = 'login.php'"> Acquista ora </button >

@@ -12,6 +12,11 @@ if(isset($db)){
     $risultati = $stmt->fetchAll();
 }
 
+if(isset($_SERVER['HTTP_REFERER'])) {
+    $previousPage = $_SERVER['HTTP_REFERER'];
+} else {
+    $previousPage = '';
+}
 
 
 ?>
@@ -37,6 +42,15 @@ if(isset($db)){
         ?>
 
         <div class="sRes">
+            <!-- Link per tornare indietro -->
+            <div class="back">
+                <a href="<?= $previousPage ?>">
+                    <!-- Icona per tornare indietro -->
+                    <span class="material-symbols-outlined">
+                keyboard_backspace
+            </span>
+                </a>
+            </div>
             <?php if(isset($risultati[0])) {
                 foreach ($risultati as $riga) { ?>
                     <section class='sr_card'>

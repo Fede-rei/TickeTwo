@@ -61,3 +61,27 @@
 .nEl {
     color: red;
 }
+
+
+.back{
+    display: flex;
+    font-size: 25px;
+    text-align: center;
+    background: #fff;
+    line-height: 1.7em;
+    border-radius: 50px;
+    width: 35px;
+    height: 35px;
+    margin: 0 auto 0 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.back:hover {
+    cursor: pointer;
+}
+
+.back a {
+    color: black;
+    text-decoration: black;
+}
