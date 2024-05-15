@@ -2,23 +2,69 @@
     margin: 30px;
     display: grid;
     grid-template-areas: 'locandina desc'
-                         'titolo    desc';
+                         'luogo desc'
+                         'date desc'
+                         'titolo desc';
+}
+#luogo{
+    grid-area: luogo;
+    display: grid;
+    justify-content: space-evenly;
+    align-items: start;
+    align-content: center;
+}
+#date{
+    grid-area: date;
+    display: grid;
+    justify-content: space-evenly;
 }
 #desc{
     grid-area: desc;
+    display: grid;
+    justify-content: end;
+
 }
 #locandina{
     grid-area: locandina;
+    display: grid;
+    align-content: space-evenly;
+    justify-content: space-evenly;
 }
 #titolo{
     grid-area: titolo;
+    display: grid;
+    justify-content: center;
+    align-content: center;
 }
 textarea{
     resize: none;
     margin: 20px;
-
+    float: right;
     width: 500px;
     height: 395px;
     border-radius: 15px;
     box-shadow: 5px 5px rgba(23,26,24,0.76);
+}
+.li {
+    margin: 10px;
+    border-radius: 15px;
+    padding: 5px;
+}
+.butt{
+    font-family: Bahnschrift, serif;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px 15px;
+    width: -webkit-fill-available;
+}
+#bF {
+    font-family: Bahnschrift;
+    background-color: #F0F0F0;
+    padding: 7px 15px;
+    border: 2px solid;
+    cursor: pointer;
+    border-radius: 15px;
+}
+#pic {
+    display: none;
 }
