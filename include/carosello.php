@@ -11,7 +11,9 @@ if (isset($db)) {
     <div class="carousel-inner">
         <?php foreach ($eventsArray as $key => $item): ?>
             <div class="carousel-item <?php echo $key === 0 ? 'active' : ''; ?>">
+                <a href="Pages/eventPage.php?eventId=<?= $item['id_evento'] ?>">
                 <img class="d-block w-100" id="imgHeight" src="Images/<?= $item['image']?>" alt="<?= $item['nome'] ?>">
+                </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h3 class="eventText"><?= $item['nome'] ?></h3>
                 </div>
