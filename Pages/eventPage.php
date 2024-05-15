@@ -21,6 +21,12 @@ if (isset($db)) {
     $infoE = $infoEq->fetch();
 }
 
+if(isset($_SERVER['HTTP_REFERER'])) {
+    $previousPage = $_SERVER['HTTP_REFERER'];
+} else {
+    $previousPage = '';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +53,7 @@ if (isset($db)) {
 <div class="imgEvent" style="background-image: url('<?=$rootPath."/Images/". $infoE['image'] ?>')">
     <!-- Link per tornare indietro -->
     <div class="back">
-        <a href="..">
+        <a href="<?= $previousPage ?>">
             <!-- Icona per tornare indietro -->
             <span class="material-symbols-outlined">
                 keyboard_backspace
