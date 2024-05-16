@@ -24,7 +24,7 @@ if (isset($db)) {
 if(isset($_SERVER['HTTP_REFERER'])) {
     $previousPage = $_SERVER['HTTP_REFERER'];
 } else {
-    $previousPage = '';
+    $previousPage = '..';
 }
 
 ?>

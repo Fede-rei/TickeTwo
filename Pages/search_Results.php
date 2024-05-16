@@ -12,12 +12,6 @@ if(isset($db)){
     $risultati = $stmt->fetchAll();
 }
 
-if(isset($_SERVER['HTTP_REFERER'])) {
-    $previousPage = $_SERVER['HTTP_REFERER'];
-} else {
-    $previousPage = '';
-}
-
 
 ?>
 <!doctype html>
@@ -44,7 +38,7 @@ if(isset($_SERVER['HTTP_REFERER'])) {
         <div class="sRes">
             <!-- Link per tornare indietro -->
             <div class="back">
-                <a href="<?= $previousPage ?>">
+                <a href="..">
                     <!-- Icona per tornare indietro -->
                     <span class="material-symbols-outlined">
                 keyboard_backspace
