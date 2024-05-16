@@ -46,3 +46,8 @@
     margin: 5px 15px;
     width: -webkit-fill-available;
 }
+
+.back a {
+    color: black;
+    text-decoration: black;
+}

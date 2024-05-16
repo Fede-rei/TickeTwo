@@ -65,6 +65,9 @@ elseif(!isset($_SESSION['user']))
             <?php } ?>
         </div>
     </div>
+    <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 1): ?>
+        <button id="specialButton">Add event</button>
+    <?php endif; ?>
 </header>
 
 <!--

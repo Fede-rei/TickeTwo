@@ -41,8 +41,8 @@ if(isset($db)){
                 <a href="..">
                     <!-- Icona per tornare indietro -->
                     <span class="material-symbols-outlined">
-                keyboard_backspace
-            </span>
+                        keyboard_backspace
+                    </span>
                 </a>
             </div>
             <?php if(isset($risultati[0])) {

@@ -5,6 +5,7 @@ session_start();
 // Cancella le variabili di sessione
 unset($_SESSION['user']);
 unset($_SESSION['pic']);
+unset($_SESSION['tipo']); // Also clear the 'tipo' session variable
 
 // Imposta il percorso radice del sito
 $rootPath = '../';
@@ -22,20 +23,23 @@ if(isset($_POST['ue'], $_POST['pw']) && $_POST['ue'] !== '' && $_POST['pw'] !== 
     // Verifica se il database è stato inizializzato correttamente
     if(isset($db)){
         // Esegui la query per trovare l'utente con l'username o l'email corrispondenti e la password corretta
-        $userQ = $db->prepare('select * from utente where (username = :u or mail = :e)');
-        $user = $userQ->execute(['u' => $ue, 'e' => $ue]);
-        $user = $userQ->fetch();
+        $userQ = $db->prepare('SELECT * FROM utente WHERE (username = :u OR mail = :e)');
+        $userQ->execute(['u' => $ue, 'e' => $ue]);
+        $user = $userQ->fetch(PDO::FETCH_ASSOC); // Use FETCH_ASSOC to get an associative array
     }
 
-    if(password_verify($pass, $user['password'])) {
+    if($user && password_verify($pass, $user['password'])) {
         // Se l'utente è stato trovato, imposta la sessione e reindirizza alla homepage
         if (isset($user['id_utente'])) {
             $_SESSION['user'] = $user['id_utente'];
+            $_SESSION['tipo'] = $user['tipo']; // Store 'tipo' in session
             header('Location: ..');
         } else {
             // Altrimenti, mostra un messaggio di errore
             $vError = 'Credenziali incorrette';
         }
+    } else {
+        $vError = 'Credenziali incorrette'; // Show error if password verification fails
     }
 }
 ?>
