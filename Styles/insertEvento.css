@@ -5,6 +5,8 @@
                          'luogo desc'
                          'date desc'
                          'titolo desc';
+    justify-content: space-evenly;
+    align-items: center;
 }
 #luogo{
     grid-area: luogo;

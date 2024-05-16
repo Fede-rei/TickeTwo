@@ -8,6 +8,7 @@
     border-radius: 15px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
     padding: 0 25px;
+    margin: 10px 25px;
 }
 
 .cart {
@@ -19,6 +20,7 @@
 .q {
     border-radius: 15px;
     width: 50px;
+    text-align: end;
 }
 
 .qD {
@@ -27,12 +29,14 @@
 }
 
 .total {
-
+    margin-right: 150px;
 }
 
 .items {
     display: flex;
     margin-right: 10px;
+    flex-direction: column;
+    width: -webkit-fill-available;
 }
 
 .del:hover {
@@ -50,4 +54,15 @@
 .back a {
     color: black;
     text-decoration: black;
+}
+
+.back {
+    width: min-content;
+    padding-right: 13px;
+}
+
+.bc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

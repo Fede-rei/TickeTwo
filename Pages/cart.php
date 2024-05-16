@@ -35,16 +35,18 @@ include '../include/operazioni_cart.php';
 <?php include '../include/header.php'; ?>
 
 <div class="carrello">
-    <div class="back">
-        <a href="..">
-            <!-- Icona per tornare indietro -->
-            <span class="material-symbols-outlined">
-                keyboard_backspace
-            </span>
-        </a>
-    </div>
-    <!-- Titolo della pagina -->
-    <h1>Carrello</h1>
+    <div class="bc">
+        <div class="back">
+            <a href="..">
+                <!-- Icona per tornare indietro -->
+                <span class="material-symbols-outlined">
+                    keyboard_backspace
+                </span>
+            </a>
+        </div>
+        <!-- Titolo della pagina -->
+        <h1>Carrello</h1>
+        </div>
     <!-- Linea divisoria -->
     <hr>
     <div class="cart">

@@ -39,7 +39,6 @@ if(isset($_SERVER['HTTP_REFERER'])) {
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="../Images/ticketwoW.png" rel="icon" type="image/png">
     <!-- Includi lo script per il contatore dei biglietti -->
-    <!-- Includi lo script per il contatore dei biglietti -->
     <?php if(isset($_SESSION['user'])) {
     echo '<script type="text/javascript"> var uid = ' . $_SESSION['user'] . '</script>';
     ?><script src="../Scripts/counter.js" defer></script>

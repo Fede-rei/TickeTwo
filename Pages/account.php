@@ -17,7 +17,7 @@ if (!isset($_SESSION['user'])) {
 // Recupera le informazioni dell'utente dal database
 
 // Gestisci l'upload dell'immagine del profilo se è stata inviata tramite il modulo di caricamento
-if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] == 0){
+if(isset($_FILES['pic']) && $_FILES['pic'] != NULL && $_FILES["pic"]["error"] == 0) {
     // Ottieni il nome del file immagine originale
     $originalFileName = explode(".", $_FILES['pic']['name']);
     $imagename = $_SESSION['user'] . '.' . $originalFileName[count($originalFileName) - 1];

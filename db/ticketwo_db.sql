@@ -41,13 +41,13 @@ CREATE TABLE IF NOT EXISTS Acquisti(
 );
 
 CREATE TABLE IF NOT EXISTS Carrello(
-                                       id_carrello INT AUTO_INCREMENT,
-                                       id_biglietto INT,
-                                       id_utente INT,
-                                       quantita INT,
-                                       PRIMARY KEY(id_carrello),
-                                       FOREIGN KEY(id_utente) REFERENCES Utente(id_utente),
-                                       FOREIGN KEY(id_biglietto) REFERENCES Biglietto(id_Biglietto)
+    id_carrello INT AUTO_INCREMENT,
+    id_biglietto INT,
+    id_utente INT,
+    quantita INT,
+    PRIMARY KEY(id_carrello),
+    FOREIGN KEY(id_utente) REFERENCES Utente(id_utente),
+    FOREIGN KEY(id_biglietto) REFERENCES Biglietto(id_Biglietto)
 );
 
 CREATE TRIGGER controllo_quantità_biglietti
