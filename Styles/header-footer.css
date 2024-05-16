@@ -166,9 +166,12 @@ footer {
     width: -webkit-fill-available;
 }
 
-#ticketImg{
+#ticketImg {
+    display: flex;
+    flex-direction: row;
     width: 10%;
     margin: 10px auto 10px 10px;
+    align-items: center;
 }
 
 .cerca {
@@ -194,6 +197,10 @@ button, input{
     box-sizing: unset;
 }
 
+.imgLink {
+    width: 100%;
+}
+
 
 input,
 button,
@@ -205,4 +212,8 @@ textarea {
 
 button:hover{
     cursor: pointer;
+}
+
+.addE {
+    color: white;
 }

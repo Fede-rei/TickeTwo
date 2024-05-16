@@ -14,10 +14,19 @@ elseif(!isset($_SESSION['user']))
 
 <header>
     <!-- Link all'homepage del sito -->
-    <a href="<?= $rootPath ?>" id="ticketImg">
-        <!-- Immagine del logo del sito -->
-        <img src="<?= $rootPath ?>Images/ticketwo.png" class="tI">
-    </a>
+    <div id="ticketImg">
+        <a href="<?= $rootPath ?>" class="imgLink">
+            <!-- Immagine del logo del sito -->
+            <img src="<?= $rootPath ?>Images/ticketwo.png" class="tI">
+        </a>
+        <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 1): ?>
+            <a href="<?= $rootPath ?>Pages/insertEvento.php" class="addE">
+                <span class="material-symbols-outlined">
+                    add_circle
+                </span>
+            </a>
+        <?php endif; ?>
+    </div>
     <!-- Barra di ricerca -->
     <div class="searchBar">
         <form method="get" action="<?= $rootPath ?>Pages/search_Results.php" class="cerca">
@@ -65,10 +74,6 @@ elseif(!isset($_SESSION['user']))
             <?php } ?>
         </div>
     </div>
-    <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 1): ?>
-        <script src="../Scripts/addevent.js" defer></script>
-        <button id="add_event">Add event</button>
-    <?php endif; ?>
 </header>
 
 
