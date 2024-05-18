@@ -2,38 +2,46 @@
     width: 100%;
     height: 300px;
 
-    background-color: #eee;
-    border-radius: 5px;
-
+    border-radius: 15px;
     position: relative;
     max-width: 1350px;
     margin: 0 auto;
-
     margin-top: 30px;
+    border: 1px solid;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+}
 
+.sr_card a:hover {
+    text-decoration: underline;
 }
 
 .sr_card_content{
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
+
 .img_sr_card {
-    width: 40%; /* Assicura che il div contenga completamente l'immagine */
-    height: 100%; /* Altezza predefinita del contenitore */
-    overflow: hidden; /* Nasconde eventuali parti dell'immagine che potrebbero fuoriuscire dal div */
+    height: 100%;
+    overflow: hidden;
+    margin-right: auto;
 }
 
 .img_sr_card img {
-    width: 100%; /* Larghezza automatica per mantenere le proporzioni */
-    height: 100%; /* Altezza pari al 100% del contenitore */
-    object-fit: cover; /* L'immagine viene ridimensionata per riempire il contenitore mantenendo le proporzioni */
+    height: 100%;
+    border-radius: 15px 0 0 15px;
+    border-right: 1px solid;
 }
 
 
 .text_sr_card{
-    width: 60%;
-    height: 100%;
+    margin-left: auto;
+    margin-right: 50px;
+    text-align: end;
+    color: black;
 }
 
 .button{
@@ -85,4 +93,9 @@
     padding-top: 10px;
     color: black;
     text-decoration: black;
+}
+
+a {
+    display: flex;
+    height: -webkit-fill-available;
 }

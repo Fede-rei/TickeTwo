@@ -195,6 +195,7 @@ button, input{
 *::before,
 *::after {
     box-sizing: unset;
+    text-decoration: none;
 }
 
 .imgLink {
