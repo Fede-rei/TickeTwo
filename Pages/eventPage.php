@@ -82,7 +82,7 @@ if(isset($_SERVER['HTTP_REFERER'])) {
             <label for="counter">Qta</label>
             <div id="counter">
                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
-                <input type="text" min="1" value="1" class="count">
+                <input type="text" min="1" value="1" max="<?= $infoE['posti'] ?>" class="count">
                 <span class="up" onClick='increaseCount(event, this)'>+</span>
             </div>
         </div>

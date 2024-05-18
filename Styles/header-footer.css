@@ -213,3 +213,13 @@ textarea {
 button:hover{
     cursor: pointer;
 }
+
+.bCart {
+    width: 24px;
+    margin-right: 15px;
+}
+
+.addE {
+    width: 24px;
+    margin-right: 15px;
+}

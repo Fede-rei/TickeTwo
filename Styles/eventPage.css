@@ -4,6 +4,8 @@
     height: 500px;
     padding-top: 10px;
     background-size: cover;
+    background-position-y: center;
+    background-repeat: repeat;
 }
 
 .payment {
@@ -46,6 +48,7 @@
     border: 1px solid #757c88;
     border-radius: 15px;
 }
+
 #counter input {
     width: 50px;
     border: 0;
@@ -57,6 +60,7 @@
     appearance: none;
     outline: 0;
 }
+
 #counter span {
     display: block;
     font-size: 25px;

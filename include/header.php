@@ -19,13 +19,6 @@ elseif(!isset($_SESSION['user']))
             <!-- Immagine del logo del sito -->
             <img src="<?= $rootPath ?>Images/ticketwo.png" class="tI">
         </a>
-        <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 1): ?>
-            <a href="<?= $rootPath ?>Pages/insertEvento.php" class="addE">
-                <span class="material-symbols-outlined">
-                    add_circle
-                </span>
-            </a>
-        <?php endif; ?>
     </div>
     <!-- Barra di ricerca -->
     <div class="searchBar">
@@ -43,6 +36,14 @@ elseif(!isset($_SESSION['user']))
     <!-- Menu di navigazione -->
     <div id="menu">
         <!-- Link al carrello o alla pagina di login a seconda dello stato dell'utente -->
+        <!-- Link admin a insertEvento.php -->
+        <?php if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 1): ?>
+            <a href="<?= $rootPath ?>Pages/insertEvento.php" class="addE">
+                <span class="material-symbols-outlined">
+                    add_circle
+                </span>
+            </a>
+        <?php endif; ?>
         <a href="<?php
 
         if (isset($_SESSION['user'])) {
@@ -51,7 +52,7 @@ elseif(!isset($_SESSION['user']))
             echo $rootPath . "Pages/login.php";
         }
 
-        ?>">
+        ?>"  style="<?php if (!isset($_SESSION['tipo']) || (isset($_SESSION['tipo']) && $_SESSION['tipo'] !== 1)): ?> margin-left: 39px; <?php endif; ?>" class="bCart">
             <!-- Icona del carrello -->
             <span class="material-symbols-outlined">
                 shopping_cart

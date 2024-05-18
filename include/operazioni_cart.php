@@ -55,7 +55,7 @@ function total() {
                 }
             }
         ?>
-        <div class="total">
+        <div class="total" <?php if($t === 0){ ?> style="visibility: hidden" <?php } ?>>
             <h1>Totale: <?= $t ?>€</h1>
             <?php if ($t !== 0) { ?>
                 <button class="acq">Acquista</button>
