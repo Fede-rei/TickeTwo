@@ -46,8 +46,8 @@ if (isset($_POST['titolo'], $_POST['luogo'], $_POST['data'], $_POST['desc'], $_P
                                 $insert->execute(['n' => $nome, 'de' => $desc, 'da' => $data, 'l' => $luogo, 'p' => $posti]);
                             }
 
-                            $sel = $db->prepare('select * from evento where nome = :n and descrizione = :de and data = :da and luogo = :l');
-                            $selR = $sel->execute(['n' => $nome, 'de' => $desc, 'da' => $data, 'l' => $luogo]);
+                            $sel = $db->prepare('select * from evento order by id_evento desc');
+                            $selR = $sel->execute();
                             $selR = $sel->fetch();
 
                             $newimagename = $selR['id_evento'] . '.' . $originalFileName[count($originalFileName) - 1];
@@ -57,7 +57,7 @@ if (isset($_POST['titolo'], $_POST['luogo'], $_POST['data'], $_POST['desc'], $_P
                             $upd->execute(['i' => $newimagename, 'n' => $nome, 'de' => $desc, 'da' => $data, 'l' => $luogo]);
 
                             $insertB = $db->prepare('insert into biglietto(id_event, prezzo) values(:i, :p)');
-                            $insert->execute(['i' => $selR['id_evento'], 'p' => $prezzo]);
+                            $insertB->execute(['i' => $selR['id_evento'], 'p' => $prezzo]);
 
                             header('Location: eventPage.php?eventId=' . $selR['id_evento']);
                         }
