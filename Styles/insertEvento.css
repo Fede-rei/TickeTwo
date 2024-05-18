@@ -2,9 +2,11 @@
     margin: 30px;
     display: grid;
     grid-template-areas: 'locandina desc'
-                         'luogo desc'
+                         'titolo desc'
                          'date desc'
-                         'titolo desc';
+                         'luogo desc'
+                         'posti desc'
+                         'prezzo desc';
     justify-content: space-evenly;
     align-items: center;
 }
@@ -69,4 +71,13 @@ textarea{
 }
 #pic {
     display: none;
+}
+#posti{
+    grid-area: posti;
+    display: grid;
+    justify-content: space-evenly;
+}
+#prezzo{
+    grid-area: prezzo;
+    display: grid;
 }
