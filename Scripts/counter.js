@@ -24,7 +24,7 @@ let c = document.querySelector('.count')
 aggCarr.onclick = function() {
     let req = new XMLHttpRequest()
 
-    req.open('get', 'aggiungi.php?biglietto=' + aggCarr.value + '&user=' + uid + '&c=' + c.value)
+    req.open('get', '../include/aggiungi.php?biglietto=' + aggCarr.value + '&user=' + uid + '&c=' + c.value)
     req.send()
 
     req.onreadystatechange = function() {
