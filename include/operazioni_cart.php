@@ -26,7 +26,14 @@ function displayCart() {
                     <div class="qD">
                         <p class="itemQ">
                             <label for="<?= $bE['id_carrello'] ?>">Quantità:</label>
-                            <input class="q" id="<?= $bE['id_carrello'] ?>" value="<?= $bE['quantita'] ?>" min="1" onchange="changeQ(this)" type="number">
+                            <input class="q" id="<?= $bE['id_carrello'] ?>" value="<?php
+                            if($bE['quantita'] > $bE['posti']) {
+                                echo $bE['posti'];
+                                $up = $db->prepare('update carrello set quantita = :q where id_carrello = :c');
+                                $up->execute(['q' => $bE['posti'], 'c' => $bE['id_carrello']]);
+                            } else {
+                                echo $bE['quantita'];
+                            }?>" min="1" onchange="changeQ(this)" type="number">
                         </p>
 
                         <span id='<?= $bE['id_carrello'] ?>'  class="material-symbols-outlined del" onclick="remove(this)">

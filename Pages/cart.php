@@ -28,7 +28,6 @@ include '../include/operazioni_cart.php';
     <!-- Includi lo script per il contatore dei biglietti -->
     <?= '<script type="text/javascript">var uid = ' . $_SESSION['user'] . '</script>' ?>
     <script src="../Scripts/remove.js" defer></script>
-    <script src="../Scripts/search.js" defer></script>
 </head>
 
 <body>

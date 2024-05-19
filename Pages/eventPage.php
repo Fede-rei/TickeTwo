@@ -74,6 +74,7 @@ if(isset($_SERVER['HTTP_REFERER'])) {
     </div>
     <div class="payment">
         <!-- Prezzo del biglietto -->
+        <?php if($infoE['posti'] !== 0) { ?>
         <p><?= $infoE['prezzo'] ?> €<br>
             I biglietti verranno inviati all'email verificata</p>
 
@@ -89,11 +90,14 @@ if(isset($_SERVER['HTTP_REFERER'])) {
 
         <!-- Pulsanti per aggiungere al carrello o acquistare ora -->
         <?php if(isset($_SESSION['user'])) { ?>
-            <button value = "<?= $infoE['id_Biglietto'] ?>" class="aggCarr b"> Aggiungi al carrello </button >
-            <button value = "<?= $infoE['id_Biglietto'] ?>" class="acqOra b"> Acquista ora </button >
+            <button value = "<?= $infoE['id_Biglietto'] ?>" class="aggCarr b"> Aggiungi al carrello </button>
+            <button value = "<?= $infoE['id_Biglietto'] ?>" class="acqOra b"> Acquista ora </button>
         <?php } else { ?>
-            <button onclick="location.href = 'login.php'" class="aggCarr b"> Aggiungi al carrello </button >
-            <button onclick="location.href = 'login.php'" class="acqOra b"> Acquista ora </button >
+            <button onclick="location.href = 'login.php'" class="aggCarr b"> Aggiungi al carrello </button>
+            <button onclick="location.href = 'login.php'" class="acqOra b"> Acquista ora </button>
+        <?php } } else { ?>
+            <p class="nonDisp">Biglietti non più disponibili</p>
+            <button onclick="location.href = '..'" class="b">Torna alla home</button>
         <?php } ?>
     </div>
 </div>
