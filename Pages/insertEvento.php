@@ -95,7 +95,7 @@ if (isset($_POST['titolo'], $_POST['luogo'], $_POST['data'], $_POST['desc'], $_P
             <label id="bF">
                 Seleziona il file
                 <input type="file" accept="image/jpeg, image/png, image/jpg, image/gif" name="pic" id="pic"
-                       title="Inserisci un' immagine">
+                       title="Inserisci un' immagine" required>
             </label>
         </div>
     </div>

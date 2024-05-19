@@ -4,12 +4,12 @@ USE ticketwo;
 CREATE TABLE IF NOT EXISTS Utente(
                                      id_utente INT AUTO_INCREMENT,
                                      username VARCHAR(50),
-    password varchar(200),
-    tipo BOOLEAN,
-    mail VARCHAR(50),
-    pfp VARCHAR(50),
-    PRIMARY KEY(id_utente)
-    );
+                                     password varchar(200),
+                                     tipo BOOLEAN,
+                                     mail VARCHAR(50),
+                                     pfp VARCHAR(50),
+                                     PRIMARY KEY(id_utente)
+);
 
 CREATE TABLE IF NOT EXISTS Evento(
                                      id_evento INT AUTO_INCREMENT,
