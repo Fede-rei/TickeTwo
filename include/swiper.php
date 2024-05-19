@@ -11,7 +11,7 @@ if (isset($db)) {
             <div class="swiper-slide">
                 <a class="sCL" href="Pages/eventPage.php?eventId=<?= $item['id_evento'] ?>">
                     <div class="cardItem">
-                        <p><?= $item['nome'] ?></p>
+                        <p class="eName"><?= $item['nome'] ?></p>
                         <img class="event-image" src="Images/<?= $item['image'] ?>">
                     </div>
                 </a>

@@ -41,25 +41,29 @@ if (isset($_POST['titolo'], $_POST['luogo'], $_POST['data'], $_POST['desc'], $_P
                 if (strlen($nome) <= 50) {
                     if (strlen($luogo) <= 50) {
                         if (strlen($desc) <= 500) {
-                            if (isset($db)) {
-                                $insert = $db->prepare('insert into evento(nome, descrizione, data, luogo, posti) values(:n, :de, :da, :l, :p)');
-                                $insert->execute(['n' => $nome, 'de' => $desc, 'da' => $data, 'l' => $luogo, 'p' => $posti]);
+                            if($prezzo >= 1) {
+                                if ($posti >= 1) {
+                                    if (isset($db)) {
+                                        $insert = $db->prepare('insert into evento(nome, descrizione, data, luogo, posti) values(:n, :de, :da, :l, :p)');
+                                        $insert->execute(['n' => $nome, 'de' => $desc, 'da' => $data, 'l' => $luogo, 'p' => $posti]);
+                                    }
+
+                                    $sel = $db->prepare('select * from evento order by id_evento desc');
+                                    $selR = $sel->execute();
+                                    $selR = $sel->fetch();
+
+                                    $newimagename = $selR['id_evento'] . '.' . $originalFileName[count($originalFileName) - 1];
+                                    rename('../Images/' . $tmpimagename, '../Images/' . $newimagename);
+
+                                    $upd = $db->prepare('update evento set image = :i where nome = :n and descrizione = :de and data = :da and luogo = :l');
+                                    $upd->execute(['i' => $newimagename, 'n' => $nome, 'de' => $desc, 'da' => $data, 'l' => $luogo]);
+
+                                    $insertB = $db->prepare('insert into biglietto(id_event, prezzo) values(:i, :p)');
+                                    $insertB->execute(['i' => $selR['id_evento'], 'p' => $prezzo]);
+
+                                    header('Location: eventPage.php?eventId=' . $selR['id_evento']);
+                                }
                             }
-
-                            $sel = $db->prepare('select * from evento order by id_evento desc');
-                            $selR = $sel->execute();
-                            $selR = $sel->fetch();
-
-                            $newimagename = $selR['id_evento'] . '.' . $originalFileName[count($originalFileName) - 1];
-                            rename('../Images/' . $tmpimagename, '../Images/' . $newimagename);
-
-                            $upd = $db->prepare('update evento set image = :i where nome = :n and descrizione = :de and data = :da and luogo = :l');
-                            $upd->execute(['i' => $newimagename, 'n' => $nome, 'de' => $desc, 'da' => $data, 'l' => $luogo]);
-
-                            $insertB = $db->prepare('insert into biglietto(id_event, prezzo) values(:i, :p)');
-                            $insertB->execute(['i' => $selR['id_evento'], 'p' => $prezzo]);
-
-                            header('Location: eventPage.php?eventId=' . $selR['id_evento']);
                         }
                     }
                 }
@@ -109,10 +113,10 @@ if (isset($_POST['titolo'], $_POST['luogo'], $_POST['data'], $_POST['desc'], $_P
         <input type="datetime-local" id="p3" class="li" name="data">
     </label>
     <label for="p4" id="posti">Posti Disponibili:
-        <input id="p4" type="number" name="posti" class="li">
+        <input id="p4" type="number" name="posti" class="li" min="1">
     </label>
     <label for="p5" id="prezzo"> Prezzo:
-        <input id="p5" type="number" name="prezzo" class="li">
+        <input id="p5" type="number" name="prezzo" class="li" min="1">
     </label>
     <button type="submit" id="submit" class="butt">Aggiungi</button>
     <label for="textarea" id="desc"> Descrizione:

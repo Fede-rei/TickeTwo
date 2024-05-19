@@ -3,6 +3,7 @@
     margin: 50px auto;
     height: 300px;
     position: relative;
+    padding-right: 10px;
 }
 
 .swiper-slide {
@@ -21,10 +22,10 @@
 .swiper-button-next {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    width: 100px;
+    transform: translateY(-35%);
+    width: 50px;
     height: 100px;
-    color: #fff;
+    color: #63c5da;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +36,7 @@
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-    color: red;
+    color: #757c88;
     transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
@@ -78,6 +79,7 @@ h3,
     height: auto;
     border-radius: 0 0 15px 15px;
     border-top: 1px solid;
+    max-height: 225px;
 }
 
 .sCL {
@@ -88,6 +90,10 @@ h3,
     height: 100%;
 }
 
+.sCL:hover {
+    color: black;
+    text-decoration: underline;
+}
 
 
 .swiper-wrapper {
@@ -103,4 +109,8 @@ h3,
     border: 1px solid;
     overflow: hidden;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.eName {
+    margin: 20px 0 auto 0;
 }
