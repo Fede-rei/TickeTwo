@@ -102,25 +102,25 @@ if (isset($_POST['titolo'], $_POST['luogo'], $_POST['data'], $_POST['desc'], $_P
     <br><br><br>
 
     <label for="p1" id="titolo">Titolo:
-        <input type="text" name="titolo" id="p1" class="li">
+        <input type="text" name="titolo" id="p1" class="li" required>
     </label>
 
     <label for="p2" id="luogo">Luogo:
-        <input type="text" id="p2" class="li" name="luogo">
+        <input type="text" id="p2" class="li" name="luogo" required>
     </label>
 
     <label for="p3" id="date">Data:
-        <input type="datetime-local" id="p3" class="li" name="data">
+        <input type="datetime-local" id="p3" class="li" name="data" required>
     </label>
     <label for="p4" id="posti">Posti Disponibili:
-        <input id="p4" type="number" name="posti" class="li" min="1">
+        <input id="p4" type="number" name="posti" class="li" min="1" required>
     </label>
     <label for="p5" id="prezzo"> Prezzo:
-        <input id="p5" type="number" name="prezzo" class="li" min="1">
+        <input id="p5" type="number" name="prezzo" class="li" min="1" required>
     </label>
     <button type="submit" id="submit" class="butt">Aggiungi</button>
     <label for="textarea" id="desc"> Descrizione:
-        <textarea name="desc" maxlength="500"></textarea>
+        <textarea name="desc" maxlength="500" required></textarea>
     </label>
 </form>
 
