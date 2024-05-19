@@ -3,7 +3,8 @@
 }
 
 #imgHeight {
-    height: 500px;
+    height: fit-content;
+    transform: translateY(-27%);
 }
 
 .eventText{
