@@ -83,7 +83,7 @@ if(isset($_POST['username'], $_POST['email'], $_POST['pw'], $_POST['cpw']) && ($
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="../Images/ticketwoW.png" rel="icon" type="image/png">
-    <script src="../Scripts/search.js" defer></script>
+    <script src="../Scripts/visibility.js" defer></script>
 </head>
 
 <body>
@@ -98,10 +98,20 @@ if(isset($_POST['username'], $_POST['email'], $_POST['pw'], $_POST['cpw']) && ($
             <input type="text" id="p1" name="username" placeholder="Username"><br>
             <label for="p2">Email: </label>
             <input type="email" id="p2" name="email" placeholder="Email"><br>
-            <label for="p3">Password: </label>
-            <input type="password" name="pw" id="p3" placeholder="Password"><br>
-            <label for="p4">Conferma Password: </label>
-            <input type="password" name="cpw" id="p4" placeholder="Password"><br>
+            <div class="pwI">
+                <label for="p3">Password: </label>
+                <input class="li" type="password" name="pw" id="p3" placeholder="Password">
+                <span onclick="changeVisibility(this, '#p3')" class="material-symbols-outlined eye">
+                    visibility_off
+                </span>
+            </div><br>
+            <div class="pwI">
+                <label for="p4">Conferma Password: </label>
+                <input class="li" type="password" name="pw" id="p4" placeholder="Password">
+                <span onclick="changeVisibility(this, '#p4')" class="material-symbols-outlined eye">
+                    visibility_off
+                </span>
+            </div><br>
             <button type="submit">Submit</button>
             <!-- Visualizza gli eventuali errori di validazione -->
             <p class="vError"><?= $vError ?></p>

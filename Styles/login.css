@@ -49,3 +49,13 @@ header span{
 .vError {
     color: red;
 }
+
+.eye:hover {
+    cursor: pointer;
+}
+
+.pwI {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -104,7 +104,6 @@ $_SESSION['pic'] = $info['pfp'];
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="<?= $rootPath ?>Images/ticketwoW.png" rel="icon" type="image/png">
     <link rel="stylesheet" href="../Styles/header-footer.css">
-    <script src="../Scripts/search.js" defer></script>
 </head>
 <body>
 <?php include '../include/header.php' ?>

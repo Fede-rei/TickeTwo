@@ -54,7 +54,7 @@ if(isset($_POST['ue'], $_POST['pw']) && $_POST['ue'] !== '' && $_POST['pw'] !== 
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="../Images/ticketwoW.png" rel="icon" type="image/png">
-    <script src="../Scripts/search.js" defer></script>
+    <script src="../Scripts/visibility.js" defer></script>
 </head>
 
 <body>
@@ -67,8 +67,13 @@ if(isset($_POST['ue'], $_POST['pw']) && $_POST['ue'] !== '' && $_POST['pw'] !== 
         <form method="post">
             <label for="p1">Username/Email: </label>
             <input class="li" type="text" id="p1" name="ue" placeholder="Username/Email"><br>
-            <label for="p2">Password: </label>
-            <input class="li" type="password" name="pw" id="p2" placeholder="Password"><br>
+            <div class="pwI">
+                <label for="p2">Password: </label>
+                <input class="li" type="password" name="pw" id="p2" placeholder="Password">
+                <span onclick="changeVisibility(this, '#p2')" class="material-symbols-outlined eye">
+                    visibility_off
+                </span>
+            </div><br>
             <button type="submit">Submit</button>
             <!-- Visualizza gli eventuali errori di login -->
             <p class="vError"><?= $vError ?></p>
