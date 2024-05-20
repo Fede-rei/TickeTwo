@@ -6,6 +6,7 @@ if(isset($db)) {
     $in = $db->prepare('select * from acquisti where id_ticket = :t and id_cliente = :u');
     $i = $in->execute(['t' => $_GET['biglietto'], 'u' => $_GET['user']]);
     $i = $in->fetch();
+
 }
 
 if(isset($i['id_cliente'])) {
@@ -15,7 +16,7 @@ if(isset($i['id_cliente'])) {
     echo json_encode(1);
 } else {
     $in = $db->prepare('insert into acquisti(q, id_cliente, id_ticket) values(:q, :u, :t)');
-    $i = $in->execute(['q' => ($_GET['c'] + $i['q']), 'u' => $_GET['user'], 't' => $_GET['biglietto']]);
+    $i = $in->execute(['q' => $_GET['c'], 'u' => $_GET['user'], 't' => $_GET['biglietto']]);
     $in = $db->prepare('delete from carrello where id_biglietto = :b and id_utente = :u');
     $i = $in->execute(['b' => $_GET['biglietto'], 'u' => $_GET['user']]);
 

@@ -48,6 +48,9 @@ include '../include/operazioni_cart.php';
         </div>
     <!-- Linea divisoria -->
     <hr>
+    <?php if(isset($_GET["aq"])){ ?>
+        <h5 style="color:red">Grazie per l'acquisto!❤️</h5>
+    <?php } ?>
     <div class="cart">
         <!-- Visualizza il contenuto del carrello -->
         <?php displayCart() ?>

@@ -53,7 +53,7 @@ acqOra.onclick = function() {
             let r = JSON.parse(req.response)
 
             if(r === 1){
-                window.location.replace('cart.php')
+                window.location.replace('cart.php?aq=1')
             }
         }
     }
