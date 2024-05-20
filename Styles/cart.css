@@ -44,7 +44,8 @@
 }
 
 .acq {
-    font-family: Bahnschrift, serif;
+    font-family: sans-serif;
+    font-weight: 600;
     border-radius: 15px;
     padding: 5px;
     margin: 5px 15px;

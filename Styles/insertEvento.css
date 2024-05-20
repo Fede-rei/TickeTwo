@@ -55,14 +55,16 @@ textarea{
     padding: 5px;
 }
 .butt{
-    font-family: Bahnschrift, serif;
+    font-family: sans-serif;
+    font-weight: 600;
     border-radius: 15px;
     padding: 5px;
     margin: 5px 15px;
     width: -webkit-fill-available;
 }
 #bF {
-    font-family: Bahnschrift;
+    font-family: sans-serif;
+    font-weight: 600;
     background-color: #F0F0F0;
     padding: 7px 15px;
     border: 2px solid;

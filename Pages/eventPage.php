@@ -42,7 +42,6 @@ if(isset($_SERVER['HTTP_REFERER'])) {
     <?php if(isset($_SESSION['user'])) {
     echo '<script type="text/javascript"> var uid = ' . $_SESSION['user'] . '</script>';
     ?><script src="../Scripts/counter.js" defer></script>
-    <script src="../Scripts/search.js" defer></script>
     <?php } ?>
 </head>
 
@@ -81,11 +80,19 @@ if(isset($_SERVER['HTTP_REFERER'])) {
         <!-- Quantità dei biglietti -->
         <div class="quantity">
             <label for="counter">Qta</label>
+            <?php if(isset($_SESSION['user'])) { ?>
             <div id="counter">
                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
                 <input type="text" min="1" value="1" max="<?= $infoE['posti'] ?>" class="count">
                 <span class="up" onClick='increaseCount(event, this)'>+</span>
             </div>
+            <?php } else { ?>
+                <div id="counter">
+                    <span class="down" onclick="location.href = 'login.php'">-</span>
+                    <input type="text" min="1" value="1" max="<?= $infoE['posti'] ?>" class="count">
+                    <span class="up" onclick="location.href = 'login.php'">+</span>
+                </div>
+            <?php } ?>
         </div>
 
         <!-- Pulsanti per aggiungere al carrello o acquistare ora -->
